@@ -8,6 +8,7 @@ from app.api.v1.endpoints import (
     stocks,
     options,
     trades,
+    trading,  # New trading operations endpoints
     portfolios,
     alerts,
     strategies,
@@ -59,6 +60,12 @@ api_router.include_router(
     trades.router,
     prefix="/trades",
     tags=["trades"]
+)
+
+api_router.include_router(
+    trading.router,
+    prefix="/trading",
+    tags=["trading"]
 )
 
 api_router.include_router(

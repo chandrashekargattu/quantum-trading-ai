@@ -1,0 +1,92 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Weekly on Mondays
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-python-dependencies:
+    name: Update Python Dependencies
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install pip-tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install pip-tools
+    
+    - name: Update requirements
+      run: |
+        cd backend
+        # Update all dependencies to latest versions
+        pip-compile --upgrade -o requirements.txt requirements.in || true
+        pip-compile --upgrade -o requirements-dev.txt requirements-dev.in || true
+    
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore: update Python dependencies'
+        title: 'Automated Python Dependency Updates'
+        body: |
+          ## Automated Dependency Update
+          
+          This PR updates Python dependencies to their latest versions.
+          
+          ### Changes
+          - Updated `requirements.txt`
+          - Updated `requirements-dev.txt`
+          
+          Please review the changes and ensure all tests pass before merging.
+        branch: automated-python-updates
+        delete-branch: true
+
+  update-npm-dependencies:
+    name: Update NPM Dependencies
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    
+    - name: Update dependencies
+      run: |
+        cd frontend
+        # Update dependencies
+        npx npm-check-updates -u
+        npm install
+    
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore: update NPM dependencies'
+        title: 'Automated NPM Dependency Updates'
+        body: |
+          ## Automated Dependency Update
+          
+          This PR updates NPM dependencies to their latest versions.
+          
+          ### Changes
+          - Updated `package.json`
+          - Updated `package-lock.json`
+          
+          Please review the changes and ensure all tests pass before merging.
+        branch: automated-npm-updates
+        delete-branch: true

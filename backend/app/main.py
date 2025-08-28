@@ -11,8 +11,10 @@ import sys
 from app.core.config import settings
 from app.api.v1.api import api_router
 from app.db.database import init_db
-from app.services.websocket import sio_app
+from app.api.v1.websocket import websocket_endpoint, periodic_connection_check
 from app.ml.model_manager import ModelManager
+from fastapi import WebSocket
+import asyncio
 
 # Configure logging
 logging.basicConfig(
@@ -40,12 +42,16 @@ async def lifespan(app: FastAPI):
     await model_manager.load_models()
     app.state.model_manager = model_manager
     
+    # Start WebSocket connection checker
+    connection_check_task = asyncio.create_task(periodic_connection_check())
+    
     logger.info("Application startup complete")
     
     yield
     
     # Shutdown
     logger.info("Shutting down Quantum Trading AI Backend...")
+    connection_check_task.cancel()
     await model_manager.cleanup()
 
 
@@ -79,8 +85,38 @@ app.add_middleware(
 # Include API routes
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
-# Mount Socket.IO app
-app.mount("/ws", sio_app)
+# WebSocket endpoints
+@app.websocket("/ws/market")
+async def market_websocket(websocket: WebSocket):
+    """Market data WebSocket endpoint."""
+    from app.db.database import get_db
+    async for db in get_db():
+        await websocket_endpoint(websocket, "market", db)
+        break
+
+@app.websocket("/ws/orders")
+async def orders_websocket(websocket: WebSocket):
+    """Orders WebSocket endpoint."""
+    from app.db.database import get_db
+    async for db in get_db():
+        await websocket_endpoint(websocket, "orders", db)
+        break
+
+@app.websocket("/ws/portfolio")
+async def portfolio_websocket(websocket: WebSocket):
+    """Portfolio WebSocket endpoint."""
+    from app.db.database import get_db
+    async for db in get_db():
+        await websocket_endpoint(websocket, "portfolio", db)
+        break
+
+@app.websocket("/ws/alerts")
+async def alerts_websocket(websocket: WebSocket):
+    """Alerts WebSocket endpoint."""
+    from app.db.database import get_db
+    async for db in get_db():
+        await websocket_endpoint(websocket, "alerts", db)
+        break
 
 
 @app.get("/")
