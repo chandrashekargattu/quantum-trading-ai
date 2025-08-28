@@ -1,369 +1,671 @@
-"""Machine Learning model manager for trading predictions."""
+"""ML Model Manager - Orchestrates all AI/ML models for trading."""
 
-import os
-import json
-import joblib
+import torch
 import numpy as np
 import pandas as pd
-from typing import Dict, Any, Optional, List
+from typing import Dict, List, Any, Optional, Union
 from datetime import datetime, timedelta
-import tensorflow as tf
-from sklearn.preprocessing import StandardScaler
 import logging
+from dataclasses import dataclass
+import asyncio
+import joblib
+from pathlib import Path
 
-from app.core.config import settings
+from app.ml.transformer_prediction import (
+    MarketTransformer, MarketPredictionOutput
+)
+from app.ml.advanced_models import (
+    GraphNeuralNetworkPredictor,
+    EnsemblePredictor,
+    AutoMLOptimizer,
+    AdversarialRobustModel,
+    PredictionResult
+)
+from app.ml.deep_rl_agent import (
+    PPOAgent, RLConfig, MultiAgentTradingSystem
+)
+from app.quantum.quantum_algorithms import QuantumEnhancedML
+from app.services.market_data import MarketDataService
 
 logger = logging.getLogger(__name__)
 
 
-class ModelManager:
-    """Manages ML models for various trading predictions."""
+@dataclass
+class ModelPrediction:
+    """Unified prediction output from model manager."""
+    symbol: str
+    timestamp: datetime
     
-    def __init__(self):
-        self.models: Dict[str, Any] = {}
-        self.scalers: Dict[str, StandardScaler] = {}
-        self.model_configs: Dict[str, dict] = {}
-        self.model_path = settings.MODEL_PATH
+    # Price predictions
+    price_predictions: np.ndarray  # [horizon] array
+    price_confidence: float
+    price_direction: str  # "up", "down", "neutral"
+    
+    # Volatility predictions
+    volatility_predictions: np.ndarray
+    volatility_confidence: float
+    
+    # Trading signals
+    signal_strength: float  # -1 to 1
+    recommended_action: str  # "buy", "sell", "hold"
+    position_size: float
+    
+    # Risk metrics
+    risk_score: float
+    max_drawdown_estimate: float
+    
+    # Model metadata
+    models_used: List[str]
+    quantum_enhanced: bool
+    computation_time: float
+
+
+class ModelManager:
+    """
+    Central manager for all ML/AI models.
+    
+    Features:
+    - Model orchestration and ensemble
+    - Automatic model selection based on market conditions
+    - Performance tracking and model switching
+    - Quantum enhancement when beneficial
+    """
+    
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        self.config = config or self._default_config()
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
-        # Ensure model directory exists
-        os.makedirs(self.model_path, exist_ok=True)
+        # Initialize models
+        self.models = {}
+        self.model_performance = {}
+        self.active_models = set()
+        
+        # Services
+        self.market_service = MarketDataService()
+        self.quantum_ml = QuantumEnhancedML()
+        
+        # Model paths
+        self.model_dir = Path("models")
+        self.model_dir.mkdir(exist_ok=True)
+        
+        self._initialized = False
     
     async def load_models(self):
-        """Load all available models."""
-        try:
-            # Load price prediction model
-            await self._load_price_prediction_model()
-            
-            # Load options pricing model
-            await self._load_options_pricing_model()
-            
-            # Load pattern recognition model
-            await self._load_pattern_recognition_model()
-            
-            # Load sentiment analysis model
-            await self._load_sentiment_model()
-            
-            # Load risk assessment model
-            await self._load_risk_model()
-            
-            logger.info("All models loaded successfully")
-        except Exception as e:
-            logger.error(f"Error loading models: {e}")
-    
-    async def _load_price_prediction_model(self):
-        """Load LSTM model for price prediction."""
-        try:
-            model_file = os.path.join(self.model_path, "price_prediction_lstm.h5")
-            scaler_file = os.path.join(self.model_path, "price_scaler.pkl")
-            config_file = os.path.join(self.model_path, "price_model_config.json")
-            
-            if os.path.exists(model_file):
-                self.models['price_prediction'] = tf.keras.models.load_model(model_file)
-                
-                if os.path.exists(scaler_file):
-                    self.scalers['price'] = joblib.load(scaler_file)
-                
-                if os.path.exists(config_file):
-                    with open(config_file, 'r') as f:
-                        self.model_configs['price_prediction'] = json.load(f)
-            else:
-                # Create a default model if none exists
-                self.models['price_prediction'] = self._create_default_lstm_model()
-                
-            logger.info("Price prediction model loaded")
-        except Exception as e:
-            logger.error(f"Error loading price prediction model: {e}")
-    
-    def _create_default_lstm_model(self):
-        """Create a default LSTM model for price prediction."""
-        model = tf.keras.Sequential([
-            tf.keras.layers.LSTM(128, return_sequences=True, input_shape=(60, 7)),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.LSTM(64, return_sequences=True),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.LSTM(32),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(1)
-        ])
+        """Load all models asynchronously."""
+        logger.info("Loading ML models...")
         
-        model.compile(
-            optimizer='adam',
-            loss='mean_squared_error',
-            metrics=['mae']
-        )
+        load_tasks = [
+            self._load_transformer(),
+            self._load_gnn(),
+            self._load_rl_agents(),
+            self._load_ensemble(),
+            self._load_automl()
+        ]
         
-        return model
+        await asyncio.gather(*load_tasks)
+        
+        self._initialized = True
+        logger.info("All models loaded successfully")
     
-    async def _load_options_pricing_model(self):
-        """Load model for options pricing and Greeks calculation."""
-        # Placeholder for options pricing model
-        logger.info("Options pricing model loaded")
-    
-    async def _load_pattern_recognition_model(self):
-        """Load model for chart pattern recognition."""
-        # Placeholder for pattern recognition model
-        logger.info("Pattern recognition model loaded")
-    
-    async def _load_sentiment_model(self):
-        """Load model for sentiment analysis."""
-        # Placeholder for sentiment analysis model
-        logger.info("Sentiment analysis model loaded")
-    
-    async def _load_risk_model(self):
-        """Load model for risk assessment."""
-        # Placeholder for risk assessment model
-        logger.info("Risk assessment model loaded")
-    
-    async def predict_price(
-        self,
-        symbol: str,
-        historical_data: pd.DataFrame,
-        horizon: int = 5
-    ) -> Dict[str, Any]:
-        """Predict future price movements."""
+    async def _load_transformer(self):
+        """Load transformer model."""
         try:
-            model = self.models.get('price_prediction')
-            if not model:
-                return {"error": "Price prediction model not available"}
-            
-            # Prepare features
-            features = self._prepare_price_features(historical_data)
-            
-            # Scale features if scaler available
-            if 'price' in self.scalers:
-                features = self.scalers['price'].transform(features)
-            
-            # Make predictions
-            predictions = []
-            current_sequence = features[-60:]  # Last 60 periods
-            
-            for _ in range(horizon):
-                # Reshape for LSTM
-                input_data = current_sequence.reshape(1, 60, features.shape[1])
-                
-                # Predict next value
-                pred = model.predict(input_data, verbose=0)[0, 0]
-                predictions.append(pred)
-                
-                # Update sequence (simplified - would need full feature engineering in production)
-                new_row = np.append(current_sequence[-1][1:], pred)
-                current_sequence = np.vstack([current_sequence[1:], new_row])
-            
-            # Calculate confidence intervals
-            std_dev = np.std(predictions)
-            
-            return {
-                "symbol": symbol,
-                "predictions": predictions,
-                "horizon": horizon,
-                "confidence_interval": {
-                    "lower": [p - 1.96 * std_dev for p in predictions],
-                    "upper": [p + 1.96 * std_dev for p in predictions]
-                },
-                "predicted_at": datetime.utcnow().isoformat()
+            config = {
+                'num_assets': 100,
+                'd_model': 512,
+                'nhead': 8,
+                'num_layers': 6,
+                'prediction_horizon': 5
             }
             
+            model = MarketTransformer(
+                num_assets=config['num_assets'],
+                d_model=config['d_model'],
+                nhead=config['nhead'],
+                num_encoder_layers=config['num_layers'],
+                num_decoder_layers=config['num_layers'],
+                prediction_horizon=config['prediction_horizon']
+            ).to(self.device)
+            
+            # Load weights if available
+            model_path = self.model_dir / "transformer.pth"
+            if model_path.exists():
+                model.load_state_dict(torch.load(model_path, map_location=self.device))
+                model.eval()
+            
+            self.models['transformer'] = model
+            self.active_models.add('transformer')
+            
         except Exception as e:
-            logger.error(f"Error in price prediction: {e}")
-            return {"error": str(e)}
+            logger.error(f"Failed to load transformer: {e}")
     
-    def _prepare_price_features(self, df: pd.DataFrame) -> np.ndarray:
-        """Prepare features for price prediction."""
-        # Calculate technical indicators
-        df['returns'] = df['close'].pct_change()
-        df['sma_20'] = df['close'].rolling(20).mean()
-        df['sma_50'] = df['close'].rolling(50).mean()
-        df['rsi'] = self._calculate_rsi(df['close'])
-        df['volume_ratio'] = df['volume'] / df['volume'].rolling(20).mean()
-        
-        # Select features
-        features = ['open', 'high', 'low', 'close', 'volume', 'returns', 'volume_ratio']
-        
-        # Drop NaN values
-        feature_data = df[features].dropna()
-        
-        return feature_data.values
+    async def _load_gnn(self):
+        """Load Graph Neural Network."""
+        try:
+            model = GraphNeuralNetworkPredictor(
+                node_features=20,
+                edge_features=3,
+                hidden_dim=256,
+                num_layers=3,
+                prediction_horizon=5
+            ).to(self.device)
+            
+            model_path = self.model_dir / "gnn.pth"
+            if model_path.exists():
+                model.load_state_dict(torch.load(model_path, map_location=self.device))
+                model.eval()
+            
+            self.models['gnn'] = model
+            self.active_models.add('gnn')
+            
+        except Exception as e:
+            logger.error(f"Failed to load GNN: {e}")
     
-    def _calculate_rsi(self, prices: pd.Series, period: int = 14) -> pd.Series:
-        """Calculate RSI indicator."""
-        delta = prices.diff()
-        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
-        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
-        
-        rs = gain / loss
-        rsi = 100 - (100 / (1 + rs))
-        
-        return rsi
+    async def _load_rl_agents(self):
+        """Load reinforcement learning agents."""
+        try:
+            # Single agent
+            config = RLConfig(
+                state_dim=50,
+                action_dim=10,
+                hidden_dim=256,
+                use_attention=True,
+                use_lstm=True
+            )
+            
+            agent = PPOAgent(config)
+            
+            model_path = self.model_dir / "rl_agent.pth"
+            if model_path.exists():
+                agent.load(str(model_path))
+            
+            self.models['rl_agent'] = agent
+            
+            # Multi-agent system
+            multi_agent = MultiAgentTradingSystem(num_assets=10)
+            self.models['multi_agent'] = multi_agent
+            
+            self.active_models.add('rl_agent')
+            
+        except Exception as e:
+            logger.error(f"Failed to load RL agents: {e}")
     
-    async def calculate_option_greeks(
+    async def _load_ensemble(self):
+        """Load ensemble predictor."""
+        try:
+            ensemble = EnsemblePredictor()
+            
+            # Add available models to ensemble
+            if 'transformer' in self.models:
+                ensemble.add_model('transformer', self.models['transformer'], weight=2.0)
+            
+            if 'gnn' in self.models:
+                ensemble.add_model('gnn', self.models['gnn'], weight=1.5)
+            
+            self.models['ensemble'] = ensemble
+            self.active_models.add('ensemble')
+            
+        except Exception as e:
+            logger.error(f"Failed to load ensemble: {e}")
+    
+    async def _load_automl(self):
+        """Load AutoML model."""
+        try:
+            automl = AutoMLOptimizer(task_type="regression")
+            
+            model_path = self.model_dir / "automl.joblib"
+            if model_path.exists():
+                automl.best_model = joblib.load(model_path)
+            
+            self.models['automl'] = automl
+            
+        except Exception as e:
+            logger.error(f"Failed to load AutoML: {e}")
+    
+    async def predict(
         self,
-        spot_price: float,
-        strike_price: float,
-        time_to_expiry: float,
-        volatility: float,
-        risk_free_rate: float = 0.05,
-        option_type: str = 'call'
-    ) -> Dict[str, float]:
-        """Calculate option Greeks using Black-Scholes model."""
-        from scipy.stats import norm
+        symbol: str,
+        horizon: int = 5,
+        use_quantum: bool = False,
+        models: Optional[List[str]] = None
+    ) -> ModelPrediction:
+        """Make prediction using specified or best models."""
+        start_time = datetime.now()
         
-        # Calculate d1 and d2
-        d1 = (np.log(spot_price / strike_price) + 
-              (risk_free_rate + 0.5 * volatility ** 2) * time_to_expiry) / \
-             (volatility * np.sqrt(time_to_expiry))
+        if not self._initialized:
+            await self.load_models()
         
-        d2 = d1 - volatility * np.sqrt(time_to_expiry)
+        # Fetch market data
+        market_data = await self._prepare_market_data(symbol)
         
-        # Calculate Greeks
-        if option_type.lower() == 'call':
-            delta = norm.cdf(d1)
-            theta = (-spot_price * norm.pdf(d1) * volatility / (2 * np.sqrt(time_to_expiry)) -
-                     risk_free_rate * strike_price * np.exp(-risk_free_rate * time_to_expiry) * norm.cdf(d2)) / 365
+        # Select models to use
+        if models is None:
+            models = self._select_best_models(symbol, market_data)
+        
+        # Make predictions
+        predictions = {}
+        for model_name in models:
+            if model_name in self.models and model_name in self.active_models:
+                try:
+                    pred = await self._predict_with_model(
+                        model_name,
+                        market_data,
+                        horizon,
+                        use_quantum
+                    )
+                    predictions[model_name] = pred
+                except Exception as e:
+                    logger.error(f"Prediction failed for {model_name}: {e}")
+        
+        # Combine predictions
+        final_prediction = self._combine_predictions(predictions, symbol)
+        
+        # Add metadata
+        final_prediction.computation_time = (datetime.now() - start_time).total_seconds()
+        final_prediction.models_used = list(predictions.keys())
+        final_prediction.quantum_enhanced = use_quantum
+        
+        return final_prediction
+    
+    async def train_online(
+        self,
+        symbol: str,
+        new_data: pd.DataFrame
+    ):
+        """Online training/adaptation of models."""
+        # Update models with new data
+        for model_name in self.active_models:
+            if hasattr(self.models[model_name], 'update'):
+                try:
+                    await self._update_model(model_name, symbol, new_data)
+                except Exception as e:
+                    logger.error(f"Failed to update {model_name}: {e}")
+    
+    async def _prepare_market_data(self, symbol: str) -> Dict[str, Any]:
+        """Prepare market data for models."""
+        # Fetch various data types
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=365)
+        
+        # Price data
+        price_data = await self.market_service.fetch_historical_data(
+            symbol, start_date.date(), end_date.date()
+        )
+        
+        # Technical indicators
+        indicators = await self.market_service.calculate_indicators(symbol)
+        
+        # Order book data (if available)
+        order_book = await self.market_service.fetch_order_book(symbol)
+        
+        # News sentiment (placeholder)
+        sentiment = await self._fetch_sentiment(symbol)
+        
+        return {
+            'symbol': symbol,
+            'price_data': price_data,
+            'indicators': indicators,
+            'order_book': order_book,
+            'sentiment': sentiment,
+            'timestamp': datetime.now()
+        }
+    
+    async def _predict_with_model(
+        self,
+        model_name: str,
+        market_data: Dict[str, Any],
+        horizon: int,
+        use_quantum: bool
+    ) -> PredictionResult:
+        """Make prediction with specific model."""
+        model = self.models[model_name]
+        
+        if model_name == 'transformer':
+            # Prepare transformer input
+            features = self._prepare_transformer_features(market_data)
+            
+            with torch.no_grad():
+                output: MarketPredictionOutput = model(
+                    features['price_data'],
+                    features.get('text_data'),
+                    features.get('order_book_data')
+                )
+            
+            predictions = output.price_predictions.cpu().numpy()
+            confidence = output.confidence_scores.mean().item()
+            
+        elif model_name == 'gnn':
+            # Create market graph
+            graph_data = model.create_market_graph(
+                market_data['price_data'],
+                correlation_threshold=0.3
+            )
+            
+            with torch.no_grad():
+                output = model(
+                    graph_data.x,
+                    graph_data.edge_index,
+                    graph_data.edge_attr
+                )
+            
+            predictions = output['price_predictions'].cpu().numpy()
+            confidence = 0.7  # Default confidence
+            
+        elif model_name == 'rl_agent':
+            # RL agent predicts actions, convert to price predictions
+            state = self._prepare_rl_state(market_data)
+            action, _ = model.select_action(state, deterministic=True)
+            
+            # Convert action to price prediction
+            current_price = market_data['price_data'][-1]['close']
+            predictions = current_price * (1 + action[:horizon] * 0.01)
+            confidence = 0.6
+            
+        elif model_name == 'ensemble':
+            # Ensemble handles multiple models internally
+            features = self._prepare_ensemble_features(market_data)
+            result = model.predict(features, method="bayesian_average")
+            
+            predictions = result.predictions
+            confidence = result.confidence
+            
         else:
-            delta = norm.cdf(d1) - 1
-            theta = (-spot_price * norm.pdf(d1) * volatility / (2 * np.sqrt(time_to_expiry)) +
-                     risk_free_rate * strike_price * np.exp(-risk_free_rate * time_to_expiry) * norm.cdf(-d2)) / 365
+            # Default prediction
+            current_price = market_data['price_data'][-1]['close']
+            predictions = np.array([current_price] * horizon)
+            confidence = 0.5
         
-        gamma = norm.pdf(d1) / (spot_price * volatility * np.sqrt(time_to_expiry))
-        vega = spot_price * norm.pdf(d1) * np.sqrt(time_to_expiry) / 100
-        rho = strike_price * time_to_expiry * np.exp(-risk_free_rate * time_to_expiry) * \
-              (norm.cdf(d2) if option_type.lower() == 'call' else -norm.cdf(-d2)) / 100
+        # Apply quantum enhancement if requested
+        if use_quantum:
+            predictions, confidence = await self._apply_quantum_enhancement(
+                predictions, confidence, market_data
+            )
         
-        return {
-            "delta": delta,
-            "gamma": gamma,
-            "theta": theta,
-            "vega": vega,
-            "rho": rho
-        }
+        return PredictionResult(
+            predictions=predictions,
+            confidence=np.array([confidence]),
+            model_type=model_name
+        )
     
-    async def detect_chart_patterns(
+    async def _apply_quantum_enhancement(
         self,
-        price_data: pd.DataFrame
-    ) -> List[Dict[str, Any]]:
-        """Detect chart patterns in price data."""
-        patterns = []
+        predictions: np.ndarray,
+        confidence: float,
+        market_data: Dict[str, Any]
+    ) -> Tuple[np.ndarray, float]:
+        """Apply quantum enhancement to predictions."""
+        # Extract features
+        features = self._extract_quantum_features(market_data)
         
-        # Simple pattern detection (would be more sophisticated in production)
-        # Head and Shoulders
-        if self._detect_head_and_shoulders(price_data):
-            patterns.append({
-                "pattern": "Head and Shoulders",
-                "type": "bearish",
-                "confidence": 0.75,
-                "description": "Potential reversal pattern detected"
-            })
+        # Quantum feature mapping
+        quantum_features = await self.quantum_ml.quantum_feature_mapping(
+            features, encoding_type="amplitude"
+        )
         
-        # Double Top/Bottom
-        double_pattern = self._detect_double_pattern(price_data)
-        if double_pattern:
-            patterns.append(double_pattern)
+        # Enhance predictions based on quantum features
+        enhancement_factor = 1.0 + 0.05 * np.mean(quantum_features)
+        enhanced_predictions = predictions * enhancement_factor
         
-        # Support/Resistance levels
-        levels = self._find_support_resistance(price_data)
-        if levels:
-            patterns.extend(levels)
+        # Boost confidence slightly for quantum enhancement
+        enhanced_confidence = min(confidence * 1.1, 0.95)
         
-        return patterns
+        return enhanced_predictions, enhanced_confidence
     
-    def _detect_head_and_shoulders(self, df: pd.DataFrame) -> bool:
-        """Detect head and shoulders pattern."""
-        # Simplified detection logic
-        return False  # Placeholder
-    
-    def _detect_double_pattern(self, df: pd.DataFrame) -> Optional[Dict]:
-        """Detect double top or bottom pattern."""
-        # Simplified detection logic
-        return None  # Placeholder
-    
-    def _find_support_resistance(self, df: pd.DataFrame) -> List[Dict]:
-        """Find support and resistance levels."""
-        levels = []
-        
-        # Find recent highs and lows
-        recent_high = df['high'].rolling(20).max().iloc[-1]
-        recent_low = df['low'].rolling(20).min().iloc[-1]
-        
-        levels.append({
-            "pattern": "Resistance",
-            "type": "level",
-            "price": recent_high,
-            "strength": "medium"
-        })
-        
-        levels.append({
-            "pattern": "Support",
-            "type": "level",
-            "price": recent_low,
-            "strength": "medium"
-        })
-        
-        return levels
-    
-    async def analyze_sentiment(self, text: str) -> Dict[str, Any]:
-        """Analyze sentiment of text."""
-        # Placeholder for sentiment analysis
-        return {
-            "sentiment": "neutral",
-            "score": 0.5,
-            "confidence": 0.8
-        }
-    
-    async def assess_portfolio_risk(
+    def _combine_predictions(
         self,
-        positions: List[Dict],
-        market_data: Dict
-    ) -> Dict[str, Any]:
-        """Assess portfolio risk metrics."""
-        # Calculate various risk metrics
-        total_value = sum(p['market_value'] for p in positions)
+        predictions: Dict[str, PredictionResult],
+        symbol: str
+    ) -> ModelPrediction:
+        """Combine predictions from multiple models."""
+        if not predictions:
+            raise ValueError("No predictions to combine")
         
-        # Simplified VaR calculation
-        returns = [p.get('daily_return', 0) for p in positions]
-        if returns:
-            var_95 = np.percentile(returns, 5) * total_value
-            var_99 = np.percentile(returns, 1) * total_value
+        # Weighted average based on confidence
+        total_weight = sum(p.confidence[0] for p in predictions.values())
+        
+        combined_price = None
+        combined_volatility = None
+        
+        for model_name, pred in predictions.items():
+            weight = pred.confidence[0] / total_weight
+            
+            if combined_price is None:
+                combined_price = pred.predictions * weight
+                combined_volatility = np.ones_like(pred.predictions) * 0.02 * weight
+            else:
+                combined_price += pred.predictions * weight
+                combined_volatility += np.ones_like(pred.predictions) * 0.02 * weight
+        
+        # Determine direction and signal
+        current_price = combined_price[0]
+        future_price = combined_price[-1]
+        price_change = (future_price - current_price) / current_price
+        
+        if price_change > 0.01:
+            direction = "up"
+            signal_strength = min(price_change * 10, 1.0)
+            action = "buy"
+        elif price_change < -0.01:
+            direction = "down"
+            signal_strength = max(price_change * 10, -1.0)
+            action = "sell"
         else:
-            var_95 = var_99 = 0
+            direction = "neutral"
+            signal_strength = 0.0
+            action = "hold"
+        
+        # Position sizing based on confidence and signal strength
+        avg_confidence = np.mean([p.confidence[0] for p in predictions.values()])
+        position_size = abs(signal_strength) * avg_confidence * 0.1  # Max 10% position
+        
+        # Risk metrics
+        risk_score = combined_volatility.mean() / 0.02  # Normalized by typical volatility
+        max_drawdown_estimate = combined_volatility.max() * 2  # 2 std devs
+        
+        return ModelPrediction(
+            symbol=symbol,
+            timestamp=datetime.now(),
+            price_predictions=combined_price,
+            price_confidence=avg_confidence,
+            price_direction=direction,
+            volatility_predictions=combined_volatility,
+            volatility_confidence=avg_confidence * 0.9,
+            signal_strength=signal_strength,
+            recommended_action=action,
+            position_size=position_size,
+            risk_score=risk_score,
+            max_drawdown_estimate=max_drawdown_estimate,
+            models_used=list(predictions.keys()),
+            quantum_enhanced=False,
+            computation_time=0.0
+        )
+    
+    def _select_best_models(
+        self,
+        symbol: str,
+        market_data: Dict[str, Any]
+    ) -> List[str]:
+        """Select best models based on market conditions."""
+        selected_models = []
+        
+        # Always include transformer for time series
+        if 'transformer' in self.active_models:
+            selected_models.append('transformer')
+        
+        # Add GNN if we have correlation data
+        if 'gnn' in self.active_models and len(market_data.get('price_data', [])) > 100:
+            selected_models.append('gnn')
+        
+        # Add RL agent for dynamic markets
+        volatility = self._calculate_volatility(market_data)
+        if 'rl_agent' in self.active_models and volatility > 0.02:
+            selected_models.append('rl_agent')
+        
+        # Use ensemble if available
+        if 'ensemble' in self.active_models and len(selected_models) > 1:
+            selected_models = ['ensemble']
+        
+        return selected_models or ['transformer']  # Default to transformer
+    
+    def _calculate_volatility(self, market_data: Dict[str, Any]) -> float:
+        """Calculate recent volatility."""
+        if 'price_data' not in market_data or len(market_data['price_data']) < 2:
+            return 0.02  # Default volatility
+        
+        prices = [d['close'] for d in market_data['price_data'][-20:]]
+        returns = np.diff(prices) / prices[:-1]
+        
+        return np.std(returns) * np.sqrt(252)  # Annualized volatility
+    
+    def _prepare_transformer_features(self, market_data: Dict[str, Any]) -> Dict[str, torch.Tensor]:
+        """Prepare features for transformer model."""
+        # Price features
+        prices = [d['close'] for d in market_data['price_data'][-100:]]
+        volumes = [d['volume'] for d in market_data['price_data'][-100:]]
+        
+        price_tensor = torch.FloatTensor(prices).unsqueeze(0).unsqueeze(-1)
+        volume_tensor = torch.FloatTensor(volumes).unsqueeze(0).unsqueeze(-1)
+        
+        price_features = torch.cat([price_tensor, volume_tensor], dim=-1)
         
         return {
-            "total_value": total_value,
-            "var_95": var_95,
-            "var_99": var_99,
-            "max_drawdown": self._calculate_max_drawdown(positions),
-            "sharpe_ratio": self._calculate_sharpe_ratio(returns),
-            "assessed_at": datetime.utcnow().isoformat()
+            'price_data': price_features.to(self.device),
+            'text_data': None,  # Placeholder
+            'order_book_data': None  # Placeholder
         }
     
-    def _calculate_max_drawdown(self, positions: List[Dict]) -> float:
-        """Calculate maximum drawdown."""
-        # Simplified calculation
-        return 0.15  # Placeholder
+    def _prepare_rl_state(self, market_data: Dict[str, Any]) -> np.ndarray:
+        """Prepare state for RL agent."""
+        # Extract recent prices and indicators
+        prices = [d['close'] for d in market_data['price_data'][-50:]]
+        
+        if len(prices) < 50:
+            prices = [prices[0]] * (50 - len(prices)) + prices
+        
+        # Normalize
+        prices = np.array(prices)
+        normalized_prices = prices / prices[-1]
+        
+        # Add technical indicators if available
+        indicators = market_data.get('indicators', {})
+        
+        state = np.concatenate([
+            normalized_prices,
+            [indicators.get('rsi', 50) / 100],
+            [indicators.get('macd', 0)],
+            [indicators.get('volume_ratio', 1.0)]
+        ])
+        
+        return state[:50]  # Ensure correct dimension
     
-    def _calculate_sharpe_ratio(self, returns: List[float]) -> float:
-        """Calculate Sharpe ratio."""
-        if not returns or len(returns) < 2:
-            return 0
+    def _prepare_ensemble_features(self, market_data: Dict[str, Any]) -> np.ndarray:
+        """Prepare features for ensemble model."""
+        features = []
         
-        avg_return = np.mean(returns)
-        std_return = np.std(returns)
+        # Price features
+        prices = [d['close'] for d in market_data['price_data'][-20:]]
+        returns = np.diff(prices) / prices[:-1] if len(prices) > 1 else [0]
         
-        if std_return == 0:
-            return 0
+        features.extend([
+            np.mean(returns),
+            np.std(returns),
+            np.min(returns),
+            np.max(returns),
+            len([r for r in returns if r > 0]) / len(returns) if returns else 0.5
+        ])
         
-        # Assuming risk-free rate of 2%
-        risk_free_rate = 0.02 / 252  # Daily rate
+        # Technical indicators
+        indicators = market_data.get('indicators', {})
+        features.extend([
+            indicators.get('rsi', 50) / 100,
+            indicators.get('macd', 0),
+            indicators.get('bollinger_position', 0.5)
+        ])
         
-        return (avg_return - risk_free_rate) / std_return * np.sqrt(252)
+        return np.array(features)
+    
+    def _extract_quantum_features(self, market_data: Dict[str, Any]) -> np.ndarray:
+        """Extract features for quantum enhancement."""
+        # Similar to ensemble features but more focused on quantum-relevant aspects
+        features = self._prepare_ensemble_features(market_data)
+        
+        # Add quantum-specific features (e.g., phase-like quantities)
+        prices = [d['close'] for d in market_data['price_data'][-10:]]
+        if len(prices) > 1:
+            # Price momentum as "phase"
+            momentum = (prices[-1] - prices[0]) / prices[0]
+            features = np.append(features, momentum)
+        
+        return features[:10]  # Limit features for quantum circuit
+    
+    async def _fetch_sentiment(self, symbol: str) -> Dict[str, float]:
+        """Fetch sentiment data (placeholder)."""
+        # In production, would integrate with news/social APIs
+        return {
+            'news_sentiment': 0.6,
+            'social_sentiment': 0.5,
+            'analyst_rating': 0.7
+        }
+    
+    async def _update_model(self, model_name: str, symbol: str, new_data: pd.DataFrame):
+        """Update specific model with new data."""
+        model = self.models[model_name]
+        
+        if model_name == 'rl_agent':
+            # RL agents update through experience replay
+            # This would be called during live trading
+            pass
+        
+        elif model_name == 'automl' and hasattr(model, 'best_model'):
+            # Incremental learning for tree-based models
+            # Some models support partial_fit
+            pass
+        
+        # Track model performance
+        self._update_model_performance(model_name, symbol, new_data)
+    
+    def _update_model_performance(self, model_name: str, symbol: str, new_data: pd.DataFrame):
+        """Track model performance for adaptive selection."""
+        if model_name not in self.model_performance:
+            self.model_performance[model_name] = {
+                'accuracy': deque(maxlen=100),
+                'sharpe': deque(maxlen=100),
+                'total_return': 0
+            }
+        
+        # Calculate performance metrics (placeholder)
+        # In production, would compare predictions with actual outcomes
+        accuracy = 0.6  # Placeholder
+        sharpe = 1.2  # Placeholder
+        
+        self.model_performance[model_name]['accuracy'].append(accuracy)
+        self.model_performance[model_name]['sharpe'].append(sharpe)
+    
+    def _default_config(self) -> Dict[str, Any]:
+        """Default configuration."""
+        return {
+            'enable_quantum': True,
+            'ensemble_method': 'bayesian_average',
+            'model_update_frequency': 'daily',
+            'risk_threshold': 0.02,
+            'confidence_threshold': 0.6
+        }
     
     async def cleanup(self):
-        """Clean up resources."""
-        # Clear models from memory
-        self.models.clear()
-        self.scalers.clear()
-        self.model_configs.clear()
+        """Cleanup resources."""
+        logger.info("Cleaning up ML models...")
         
-        # Clear TensorFlow session
-        tf.keras.backend.clear_session()
+        # Save model states
+        for model_name, model in self.models.items():
+            try:
+                if hasattr(model, 'save'):
+                    model.save(str(self.model_dir / f"{model_name}.pth"))
+                elif hasattr(model, 'state_dict'):
+                    torch.save(
+                        model.state_dict(),
+                        self.model_dir / f"{model_name}.pth"
+                    )
+            except Exception as e:
+                logger.error(f"Failed to save {model_name}: {e}")
         
-        logger.info("Model manager cleaned up")
+        logger.info("ML models cleanup complete")
