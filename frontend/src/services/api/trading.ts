@@ -1,157 +1,206 @@
-import { apiClient } from './client'
+export type OrderType = 'MARKET' | 'LIMIT' | 'STOP' | 'STOP_LIMIT'
+export type OrderSide = 'BUY' | 'SELL'
+export type OrderStatus = 'PENDING' | 'OPEN' | 'PARTIALLY_FILLED' | 'FILLED' | 'CANCELLED' | 'REJECTED'
+export type TimeInForce = 'GTC' | 'IOC' | 'FOK' | 'DAY'
+
+export interface Order {
+  id: string
+  portfolioId: string
+  symbol: string
+  type: OrderType
+  side: OrderSide
+  quantity: number
+  filledQuantity: number
+  remainingQuantity: number
+  price?: number
+  stopPrice?: number
+  avgFillPrice?: number
+  status: OrderStatus
+  timeInForce: TimeInForce
+  createdAt: string
+  updatedAt: string
+  filledAt?: string
+  cancelledAt?: string
+  rejectReason?: string
+}
 
 export interface Trade {
   id: string
-  trade_id: string
+  orderId: string
+  portfolioId: string
   symbol: string
-  asset_type: 'stock' | 'option' | 'etf'
-  side: 'buy' | 'sell'
+  side: OrderSide
   quantity: number
   price: number
-  total_amount: number
   commission: number
-  fees: number
-  status: 'pending' | 'filled' | 'partial' | 'cancelled' | 'rejected'
-  order_type: 'market' | 'limit' | 'stop' | 'stop_limit'
-  time_in_force: 'day' | 'gtc' | 'ioc' | 'fok'
-  created_at: string
-  executed_at?: string
+  timestamp: string
 }
 
-export interface Position {
-  id: string
+export interface OrderBook {
   symbol: string
-  asset_type: 'stock' | 'option' | 'etf'
-  quantity: number
-  avg_cost: number
-  current_price: number
-  market_value: number
-  unrealized_pnl: number
-  unrealized_pnl_percent: number
-  realized_pnl: number
-  is_open: boolean
-  opened_at: string
+  bids: Array<{
+    price: number
+    quantity: number
+    orders?: number
+  }>
+  asks: Array<{
+    price: number
+    quantity: number
+    orders?: number
+  }>
+  spread: number
+  spreadPercent: number
+  timestamp: string
 }
 
-export interface Portfolio {
-  id: string
-  name: string
-  total_value: number
-  cash_balance: number
-  buying_power: number
-  total_return: number
-  total_return_percent: number
-  daily_return: number
-  daily_return_percent: number
-  positions: Position[]
-}
-
-export interface OrderRequest {
+export interface MarketDepth {
   symbol: string
-  asset_type: 'stock' | 'option'
-  side: 'buy' | 'sell'
-  quantity: number
-  order_type: 'market' | 'limit' | 'stop' | 'stop_limit'
-  limit_price?: number
-  stop_price?: number
-  time_in_force?: 'day' | 'gtc' | 'ioc' | 'fok'
-  option_id?: string
+  totalBidVolume: number
+  totalAskVolume: number
+  imbalance: number
+  levels: number
+  timestamp: string
 }
 
-export interface OrderResponse {
-  order_id: string
-  status: string
-  message?: string
+export interface ExecutionReport {
+  orderId: string
+  execId: string
+  execType: 'NEW' | 'PARTIAL_FILL' | 'FILL' | 'CANCELLED' | 'REJECTED'
+  orderStatus: OrderStatus
+  symbol: string
+  side: OrderSide
+  lastQty?: number
+  lastPrice?: number
+  leavesQty: number
+  cumQty: number
+  avgPrice?: number
+  timestamp: string
 }
 
-export const tradingService = {
-  // Portfolio endpoints
-  async getPortfolios(): Promise<Portfolio[]> {
-    return apiClient.get<Portfolio[]>('/portfolios')
-  },
-
-  async getPortfolio(portfolioId: string): Promise<Portfolio> {
-    return apiClient.get<Portfolio>(`/portfolios/${portfolioId}`)
-  },
-
-  async createPortfolio(data: {
-    name: string
-    description?: string
-    portfolio_type?: string
-  }): Promise<Portfolio> {
-    return apiClient.post<Portfolio>('/portfolios', data)
-  },
-
-  // Positions
-  async getPositions(portfolioId?: string): Promise<Position[]> {
-    const url = portfolioId 
-      ? `/portfolios/${portfolioId}/positions`
-      : '/positions'
-    return apiClient.get<Position[]>(url)
-  },
-
-  async getPosition(positionId: string): Promise<Position> {
-    return apiClient.get<Position>(`/positions/${positionId}`)
-  },
-
-  // Trading
-  async placeOrder(order: OrderRequest): Promise<OrderResponse> {
-    return apiClient.post<OrderResponse>('/trades/order', order)
-  },
-
-  async cancelOrder(orderId: string): Promise<{ message: string }> {
-    return apiClient.delete(`/trades/order/${orderId}`)
-  },
-
-  async getTrades(params?: {
-    portfolio_id?: string
-    symbol?: string
-    status?: string
-    limit?: number
-    offset?: number
-  }): Promise<Trade[]> {
-    return apiClient.get<Trade[]>('/trades', { params })
-  },
-
-  async getTrade(tradeId: string): Promise<Trade> {
-    return apiClient.get<Trade>(`/trades/${tradeId}`)
-  },
-
-  // Orders
-  async getOpenOrders(): Promise<any[]> {
-    return apiClient.get('/trades/orders/open')
-  },
-
-  async getOrderHistory(params?: {
-    limit?: number
-    offset?: number
-  }): Promise<any[]> {
-    return apiClient.get('/trades/orders/history', { params })
-  },
-
-  // Performance
-  async getPortfolioPerformance(
-    portfolioId: string,
-    period: '1d' | '1w' | '1m' | '3m' | '6m' | '1y' | 'all'
-  ): Promise<{
-    dates: string[]
-    values: number[]
-    returns: number[]
-  }> {
-    return apiClient.get(`/portfolios/${portfolioId}/performance`, {
-      params: { period },
+class TradingService {
+  async placeOrder(order: Partial<Order>): Promise<Order> {
+    const response = await fetch('/api/v1/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(order)
     })
-  },
+    if (!response.ok) throw new Error('Failed to place order')
+    return response.json()
+  }
 
-  // Risk metrics
-  async getPortfolioRisk(portfolioId: string): Promise<{
-    var_95: number
-    var_99: number
-    sharpe_ratio: number
-    max_drawdown: number
-    beta: number
-    alpha: number
-  }> {
-    return apiClient.get(`/portfolios/${portfolioId}/risk`)
-  },
+  async getOpenOrders(portfolioId?: string): Promise<Order[]> {
+    const url = portfolioId 
+      ? `/api/v1/orders/open?portfolioId=${portfolioId}`
+      : '/api/v1/orders/open'
+    const response = await fetch(url)
+    if (!response.ok) throw new Error('Failed to fetch open orders')
+    return response.json()
+  }
+
+  async getOrderHistory(limit = 100, portfolioId?: string): Promise<Order[]> {
+    const params = new URLSearchParams({ limit: limit.toString() })
+    if (portfolioId) params.append('portfolioId', portfolioId)
+    
+    const response = await fetch(`/api/v1/orders/history?${params}`)
+    if (!response.ok) throw new Error('Failed to fetch order history')
+    return response.json()
+  }
+
+  async getOrder(orderId: string): Promise<Order> {
+    const response = await fetch(`/api/v1/orders/${orderId}`)
+    if (!response.ok) throw new Error('Failed to fetch order')
+    return response.json()
+  }
+
+  async cancelOrder(orderId: string): Promise<void> {
+    const response = await fetch(`/api/v1/orders/${orderId}/cancel`, {
+      method: 'POST'
+    })
+    if (!response.ok) throw new Error('Failed to cancel order')
+  }
+
+  async cancelAllOrders(portfolioId?: string): Promise<void> {
+    const url = portfolioId
+      ? `/api/v1/orders/cancel-all?portfolioId=${portfolioId}`
+      : '/api/v1/orders/cancel-all'
+    const response = await fetch(url, { method: 'POST' })
+    if (!response.ok) throw new Error('Failed to cancel all orders')
+  }
+
+  async modifyOrder(orderId: string, updates: {
+    quantity?: number
+    price?: number
+    stopPrice?: number
+  }): Promise<Order> {
+    const response = await fetch(`/api/v1/orders/${orderId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updates)
+    })
+    if (!response.ok) throw new Error('Failed to modify order')
+    return response.json()
+  }
+
+  async getRecentTrades(symbol?: string, limit = 50): Promise<Trade[]> {
+    const params = new URLSearchParams({ limit: limit.toString() })
+    if (symbol) params.append('symbol', symbol)
+    
+    const response = await fetch(`/api/v1/trades?${params}`)
+    if (!response.ok) throw new Error('Failed to fetch trades')
+    return response.json()
+  }
+
+  async getOrderBook(symbol: string, depth = 10): Promise<OrderBook> {
+    const response = await fetch(
+      `/api/v1/market/orderbook/${symbol}?depth=${depth}`
+    )
+    if (!response.ok) throw new Error('Failed to fetch order book')
+    return response.json()
+  }
+
+  async getMarketDepth(symbol: string): Promise<MarketDepth> {
+    const response = await fetch(`/api/v1/market/depth/${symbol}`)
+    if (!response.ok) throw new Error('Failed to fetch market depth')
+    return response.json()
+  }
+
+  async getExecutionReports(
+    orderId?: string,
+    startTime?: Date,
+    endTime?: Date
+  ): Promise<ExecutionReport[]> {
+    const params = new URLSearchParams()
+    if (orderId) params.append('orderId', orderId)
+    if (startTime) params.append('startTime', startTime.toISOString())
+    if (endTime) params.append('endTime', endTime.toISOString())
+    
+    const response = await fetch(`/api/v1/executions?${params}`)
+    if (!response.ok) throw new Error('Failed to fetch execution reports')
+    return response.json()
+  }
+
+  // WebSocket connection for real-time order updates
+  connectOrderUpdates(
+    onUpdate: (update: ExecutionReport) => void,
+    onError?: (error: Error) => void
+  ): () => void {
+    const ws = new WebSocket(`${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws/orders`)
+    
+    ws.onmessage = (event) => {
+      try {
+        const update = JSON.parse(event.data)
+        onUpdate(update)
+      } catch (error) {
+        onError?.(new Error('Failed to parse order update'))
+      }
+    }
+    
+    ws.onerror = () => {
+      onError?.(new Error('WebSocket connection error'))
+    }
+    
+    return () => ws.close()
+  }
 }
+
+export const tradingService = new TradingService()

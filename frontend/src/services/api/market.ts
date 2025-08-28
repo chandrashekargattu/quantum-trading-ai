@@ -1,141 +1,118 @@
-import { apiClient } from './client'
-
 export interface Stock {
-  id: string
   symbol: string
   name: string
-  exchange: string
-  current_price: number
-  previous_close: number
-  open_price: number
-  day_high: number
-  day_low: number
+  price: number
+  change: number
+  changePercent: number
   volume: number
-  change_amount: number
-  change_percent: number
-  market_cap: number
-  pe_ratio: number
-  week_52_high: number
-  week_52_low: number
-  is_optionable: boolean
-  last_updated: string
+  marketCap?: number
+  high?: number
+  low?: number
+  open?: number
+  previousClose?: number
+  timestamp: string
 }
 
 export interface Option {
-  id: string
   symbol: string
-  underlying_symbol: string
   strike: number
   expiration: string
-  option_type: 'call' | 'put'
+  type: 'CALL' | 'PUT'
   bid: number
   ask: number
-  last_price: number
+  last?: number
   volume: number
-  open_interest: number
-  implied_volatility: number
-  delta: number
-  gamma: number
-  theta: number
-  vega: number
-  rho: number
+  openInterest: number
+  impliedVolatility: number
+  delta?: number
+  gamma?: number
+  theta?: number
+  vega?: number
+  rho?: number
 }
 
 export interface OptionChain {
-  underlying_symbol: string
   calls: Option[]
   puts: Option[]
   expirations: string[]
   strikes: number[]
 }
 
-export interface PriceHistory {
-  timestamp: string
-  open: number
-  high: number
-  low: number
-  close: number
-  volume: number
-}
-
-export interface MarketIndicator {
+export interface MarketQuote {
   symbol: string
-  name: string
-  value: number
-  change_amount: number
-  change_percent: number
+  price: number
+  change: number
+  changePercent: number
+  volume: number
+  bid: number
+  ask: number
+  timestamp: string
 }
 
-export const marketService = {
-  // Stock endpoints
+class MarketService {
   async getStock(symbol: string): Promise<Stock> {
-    return apiClient.get<Stock>(`/stocks/${symbol}`)
-  },
+    const response = await fetch(`/api/v1/market/stocks/${symbol}`)
+    if (!response.ok) throw new Error('Failed to fetch stock data')
+    return response.json()
+  }
 
-  async searchStocks(query: string): Promise<Stock[]> {
-    return apiClient.get<Stock[]>('/stocks/search', {
-      params: { q: query },
+  async getBatchQuotes(symbols: string[]): Promise<MarketQuote[]> {
+    const response = await fetch('/api/v1/market/quotes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ symbols })
     })
-  },
+    if (!response.ok) throw new Error('Failed to fetch quotes')
+    return response.json()
+  }
 
-  async getTopMovers(): Promise<{
-    gainers: Stock[]
-    losers: Stock[]
-    most_active: Stock[]
-  }> {
-    return apiClient.get('/stocks/movers')
-  },
-
-  // Options endpoints
   async getOptionChain(symbol: string): Promise<OptionChain> {
-    return apiClient.get<OptionChain>(`/options/chain/${symbol}`)
-  },
+    const response = await fetch(`/api/v1/options/chain/${symbol}`)
+    if (!response.ok) throw new Error('Failed to fetch option chain')
+    return response.json()
+  }
 
-  async getOption(optionId: string): Promise<Option> {
-    return apiClient.get<Option>(`/options/${optionId}`)
-  },
+  async searchSymbols(query: string): Promise<Stock[]> {
+    const response = await fetch(`/api/v1/market/search?q=${encodeURIComponent(query)}`)
+    if (!response.ok) throw new Error('Failed to search symbols')
+    return response.json()
+  }
 
-  async getOptionsByExpiration(
+  async getMarketOverview(): Promise<{
+    indices: any[]
+    sectors: any[]
+    topGainers: Stock[]
+    topLosers: Stock[]
+    mostActive: Stock[]
+  }> {
+    const response = await fetch('/api/v1/market/overview')
+    if (!response.ok) throw new Error('Failed to fetch market overview')
+    return response.json()
+  }
+
+  async getHistoricalData(
     symbol: string,
-    expiration: string
+    interval: string,
+    start: Date,
+    end: Date
   ): Promise<{
-    calls: Option[]
-    puts: Option[]
+    timestamps: string[]
+    open: number[]
+    high: number[]
+    low: number[]
+    close: number[]
+    volume: number[]
   }> {
-    return apiClient.get(`/options/${symbol}/${expiration}`)
-  },
-
-  // Historical data
-  async getPriceHistory(
-    symbol: string,
-    interval: '1m' | '5m' | '15m' | '30m' | '1h' | '1d',
-    period: '1d' | '5d' | '1mo' | '3mo' | '6mo' | '1y'
-  ): Promise<PriceHistory[]> {
-    return apiClient.get<PriceHistory[]>(`/market-data/history/${symbol}`, {
-      params: { interval, period },
+    const params = new URLSearchParams({
+      symbol,
+      interval,
+      start: start.toISOString(),
+      end: end.toISOString()
     })
-  },
-
-  // Market indicators
-  async getMarketIndicators(): Promise<MarketIndicator[]> {
-    return apiClient.get<MarketIndicator[]>('/market-data/indicators')
-  },
-
-  // Real-time quotes
-  async getQuote(symbol: string): Promise<{
-    symbol: string
-    price: number
-    bid: number
-    ask: number
-    bid_size: number
-    ask_size: number
-    timestamp: string
-  }> {
-    return apiClient.get(`/market-data/quote/${symbol}`)
-  },
-
-  // Batch quotes
-  async getBatchQuotes(symbols: string[]): Promise<Record<string, any>> {
-    return apiClient.post('/market-data/quotes/batch', { symbols })
-  },
+    const response = await fetch(`/api/v1/market/historical?${params}`)
+    if (!response.ok) throw new Error('Failed to fetch historical data')
+    return response.json()
+  }
 }
+
+export const marketService = new MarketService()

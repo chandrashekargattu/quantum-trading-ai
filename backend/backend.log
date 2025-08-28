@@ -19710,3 +19710,1563 @@ INFO:     Waiting for application startup.
 2025-08-28 11:51:30,465 - app.ml.model_manager - INFO - All models loaded successfully
 2025-08-28 11:51:30,465 - app.main - INFO - Application startup complete
 INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_risk_management_comprehensive.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-28 12:03:13,104 - app.main - INFO - Shutting down Quantum Trading AI Backend...
+2025-08-28 12:03:13,122 - app.ml.model_manager - INFO - Model manager cleaned up
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72839]
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+INFO:     Started server process [92695]
+INFO:     Waiting for application startup.
+2025-08-28 12:03:20,103 - app.main - INFO - Starting Quantum Trading AI Backend...
+2025-08-28 12:03:20,114 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-28 12:03:20,114 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-28 12:03:20,115 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-08-28 12:03:20,115 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("users")
+2025-08-28 12:03:20,115 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,115 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,124 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_sessions")
+2025-08-28 12:03:20,124 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("user_sessions")
+2025-08-28 12:03:20,124 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,124 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,126 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stocks")
+2025-08-28 12:03:20,126 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stocks")
+2025-08-28 12:03:20,126 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,126 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,128 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("price_history")
+2025-08-28 12:03:20,128 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("price_history")
+2025-08-28 12:03:20,128 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,128 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,129 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_indicators")
+2025-08-28 12:03:20,129 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_indicators")
+2025-08-28 12:03:20,129 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,129 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,129 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("options")
+2025-08-28 12:03:20,129 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("options")
+2025-08-28 12:03:20,129 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,129 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,130 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_chains")
+2025-08-28 12:03:20,130 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_chains")
+2025-08-28 12:03:20,131 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,131 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,132 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:03:20,132 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:03:20,132 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,132 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,133 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trades")
+2025-08-28 12:03:20,133 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trades")
+2025-08-28 12:03:20,133 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,133 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,133 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_book")
+2025-08-28 12:03:20,133 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_book")
+2025-08-28 12:03:20,133 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,133 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,134 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolios")
+2025-08-28 12:03:20,134 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolios")
+2025-08-28 12:03:20,134 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,134 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,135 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:03:20,135 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:03:20,135 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,135 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,136 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("watchlists")
+2025-08-28 12:03:20,136 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("watchlists")
+2025-08-28 12:03:20,136 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,136 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,137 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:03:20,137 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:03:20,137 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,137 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,137 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:03:20,137 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:03:20,138 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,138 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,138 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("transactions")
+2025-08-28 12:03:20,138 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("transactions")
+2025-08-28 12:03:20,138 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,138 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,140 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("position_history")
+2025-08-28 12:03:20,140 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("position_history")
+2025-08-28 12:03:20,140 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,140 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,140 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tax_lots")
+2025-08-28 12:03:20,140 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tax_lots")
+2025-08-28 12:03:20,141 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,141 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,141 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alerts")
+2025-08-28 12:03:20,141 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alerts")
+2025-08-28 12:03:20,141 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,141 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,142 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alert_history")
+2025-08-28 12:03:20,142 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alert_history")
+2025-08-28 12:03:20,142 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,142 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,143 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("strategies")
+2025-08-28 12:03:20,143 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("strategies")
+2025-08-28 12:03:20,143 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,143 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,144 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("notifications")
+2025-08-28 12:03:20,144 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("notifications")
+2025-08-28 12:03:20,144 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,144 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,145 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("orders")
+2025-08-28 12:03:20,145 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("orders")
+2025-08-28 12:03:20,145 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,145 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,146 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:03:20,146 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:03:20,146 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,146 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,146 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_contracts")
+2025-08-28 12:03:20,146 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_contracts")
+2025-08-28 12:03:20,146 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,146 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,147 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_orders")
+2025-08-28 12:03:20,147 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_orders")
+2025-08-28 12:03:20,147 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,147 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,148 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_positions")
+2025-08-28 12:03:20,148 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_positions")
+2025-08-28 12:03:20,148 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,148 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,149 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategies")
+2025-08-28 12:03:20,149 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategies")
+2025-08-28 12:03:20,149 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,149 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,154 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:03:20,154 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:03:20,154 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,154 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,166 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_orders")
+2025-08-28 12:03:20,166 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_orders")
+2025-08-28 12:03:20,166 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,166 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,170 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_books")
+2025-08-28 12:03:20,170 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_books")
+2025-08-28 12:03:20,170 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,170 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,170 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_makers")
+2025-08-28 12:03:20,170 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_makers")
+2025-08-28 12:03:20,170 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,170 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,171 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:03:20,171 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:03:20,171 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,171 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,171 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tick_data")
+2025-08-28 12:03:20,171 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tick_data")
+2025-08-28 12:03:20,171 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,171 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,171 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtests")
+2025-08-28 12:03:20,171 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtests")
+2025-08-28 12:03:20,172 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,172 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,172 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_results")
+2025-08-28 12:03:20,172 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_results")
+2025-08-28 12:03:20,172 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,172 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,173 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:03:20,173 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:03:20,173 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,173 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,174 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:03:20,174 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:03:20,174 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,174 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,174 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_results")
+2025-08-28 12:03:20,174 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_results")
+2025-08-28 12:03:20,174 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,174 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,175 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:03:20,175 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:03:20,175 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,175 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,175 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:03:20,175 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:03:20,175 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,175 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,176 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_limits")
+2025-08-28 12:03:20,176 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_limits")
+2025-08-28 12:03:20,176 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,176 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,176 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:03:20,176 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:03:20,176 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,176 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,177 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:03:20,177 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:03:20,177 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,177 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,177 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:03:20,177 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:03:20,177 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,177 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,178 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_reports")
+2025-08-28 12:03:20,178 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_reports")
+2025-08-28 12:03:20,178 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,178 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,178 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_models")
+2025-08-28 12:03:20,178 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_models")
+2025-08-28 12:03:20,178 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,178 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,178 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:03:20,178 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:03:20,178 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:03:20,178 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:03:20,179 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-28 12:03:20,179 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-28 12:03:20,180 - app.db.database - INFO - Database initialized successfully
+2025-08-28 12:03:20,666 - app.ml.model_manager - INFO - Price prediction model loaded
+2025-08-28 12:03:20,666 - app.ml.model_manager - INFO - Options pricing model loaded
+2025-08-28 12:03:20,666 - app.ml.model_manager - INFO - Pattern recognition model loaded
+2025-08-28 12:03:20,666 - app.ml.model_manager - INFO - Sentiment analysis model loaded
+2025-08-28 12:03:20,666 - app.ml.model_manager - INFO - Risk assessment model loaded
+2025-08-28 12:03:20,666 - app.ml.model_manager - INFO - All models loaded successfully
+2025-08-28 12:03:20,666 - app.main - INFO - Application startup complete
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_quantum_comprehensive.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-28 12:05:40,240 - app.main - INFO - Shutting down Quantum Trading AI Backend...
+2025-08-28 12:05:40,267 - app.ml.model_manager - INFO - Model manager cleaned up
+INFO:     Application shutdown complete.
+INFO:     Finished server process [92695]
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+INFO:     Started server process [96851]
+INFO:     Waiting for application startup.
+2025-08-28 12:05:48,424 - app.main - INFO - Starting Quantum Trading AI Backend...
+2025-08-28 12:05:48,426 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-28 12:05:48,426 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-28 12:05:48,427 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-08-28 12:05:48,427 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("users")
+2025-08-28 12:05:48,427 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,427 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,428 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_sessions")
+2025-08-28 12:05:48,428 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("user_sessions")
+2025-08-28 12:05:48,428 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,428 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,429 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stocks")
+2025-08-28 12:05:48,429 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stocks")
+2025-08-28 12:05:48,429 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,429 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,430 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("price_history")
+2025-08-28 12:05:48,430 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("price_history")
+2025-08-28 12:05:48,430 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,430 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,430 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_indicators")
+2025-08-28 12:05:48,430 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_indicators")
+2025-08-28 12:05:48,430 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,430 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,431 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("options")
+2025-08-28 12:05:48,431 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("options")
+2025-08-28 12:05:48,431 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,431 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,432 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_chains")
+2025-08-28 12:05:48,432 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_chains")
+2025-08-28 12:05:48,432 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,432 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,432 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:05:48,432 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:05:48,432 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,432 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,432 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trades")
+2025-08-28 12:05:48,432 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trades")
+2025-08-28 12:05:48,432 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,432 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,433 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_book")
+2025-08-28 12:05:48,433 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_book")
+2025-08-28 12:05:48,433 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,433 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,433 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolios")
+2025-08-28 12:05:48,433 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolios")
+2025-08-28 12:05:48,433 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,433 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,434 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:05:48,434 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:05:48,434 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,434 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,435 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("watchlists")
+2025-08-28 12:05:48,435 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("watchlists")
+2025-08-28 12:05:48,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,435 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:05:48,435 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:05:48,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:05:48,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:05:48,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("transactions")
+2025-08-28 12:05:48,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("transactions")
+2025-08-28 12:05:48,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("position_history")
+2025-08-28 12:05:48,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("position_history")
+2025-08-28 12:05:48,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tax_lots")
+2025-08-28 12:05:48,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tax_lots")
+2025-08-28 12:05:48,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alerts")
+2025-08-28 12:05:48,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alerts")
+2025-08-28 12:05:48,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alert_history")
+2025-08-28 12:05:48,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alert_history")
+2025-08-28 12:05:48,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("strategies")
+2025-08-28 12:05:48,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("strategies")
+2025-08-28 12:05:48,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("notifications")
+2025-08-28 12:05:48,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("notifications")
+2025-08-28 12:05:48,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("orders")
+2025-08-28 12:05:48,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("orders")
+2025-08-28 12:05:48,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:05:48,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:05:48,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_contracts")
+2025-08-28 12:05:48,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_contracts")
+2025-08-28 12:05:48,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_orders")
+2025-08-28 12:05:48,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_orders")
+2025-08-28 12:05:48,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_positions")
+2025-08-28 12:05:48,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_positions")
+2025-08-28 12:05:48,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategies")
+2025-08-28 12:05:48,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategies")
+2025-08-28 12:05:48,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:05:48,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:05:48,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_orders")
+2025-08-28 12:05:48,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_orders")
+2025-08-28 12:05:48,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,443 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_books")
+2025-08-28 12:05:48,443 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_books")
+2025-08-28 12:05:48,443 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,443 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,443 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_makers")
+2025-08-28 12:05:48,443 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_makers")
+2025-08-28 12:05:48,443 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,443 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,443 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:05:48,443 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:05:48,443 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,443 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,444 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tick_data")
+2025-08-28 12:05:48,444 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tick_data")
+2025-08-28 12:05:48,444 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,444 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,444 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtests")
+2025-08-28 12:05:48,444 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtests")
+2025-08-28 12:05:48,444 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,444 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,444 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_results")
+2025-08-28 12:05:48,444 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_results")
+2025-08-28 12:05:48,444 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,444 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,445 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:05:48,445 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:05:48,445 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,445 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,445 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:05:48,445 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:05:48,445 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,445 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,445 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_results")
+2025-08-28 12:05:48,445 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_results")
+2025-08-28 12:05:48,445 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,445 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,446 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:05:48,446 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:05:48,446 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,446 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,446 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:05:48,446 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:05:48,446 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,446 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,446 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_limits")
+2025-08-28 12:05:48,446 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_limits")
+2025-08-28 12:05:48,446 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,446 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,449 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:05:48,449 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:05:48,449 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,449 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,449 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:05:48,449 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:05:48,449 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,449 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,449 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:05:48,449 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:05:48,449 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,449 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,450 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_reports")
+2025-08-28 12:05:48,450 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_reports")
+2025-08-28 12:05:48,450 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,450 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,450 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_models")
+2025-08-28 12:05:48,450 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_models")
+2025-08-28 12:05:48,450 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,450 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,451 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:05:48,451 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:05:48,451 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:05:48,451 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:05:48,452 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-28 12:05:48,452 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-28 12:05:48,453 - app.db.database - INFO - Database initialized successfully
+2025-08-28 12:05:48,961 - app.ml.model_manager - INFO - Price prediction model loaded
+2025-08-28 12:05:48,961 - app.ml.model_manager - INFO - Options pricing model loaded
+2025-08-28 12:05:48,961 - app.ml.model_manager - INFO - Pattern recognition model loaded
+2025-08-28 12:05:48,961 - app.ml.model_manager - INFO - Sentiment analysis model loaded
+2025-08-28 12:05:48,961 - app.ml.model_manager - INFO - Risk assessment model loaded
+2025-08-28 12:05:48,961 - app.ml.model_manager - INFO - All models loaded successfully
+2025-08-28 12:05:48,961 - app.main - INFO - Application startup complete
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_websocket_comprehensive.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-28 12:08:22,441 - app.main - INFO - Shutting down Quantum Trading AI Backend...
+2025-08-28 12:08:22,529 - app.ml.model_manager - INFO - Model manager cleaned up
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96851]
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+INFO:     Started server process [1742]
+INFO:     Waiting for application startup.
+2025-08-28 12:08:31,753 - app.main - INFO - Starting Quantum Trading AI Backend...
+2025-08-28 12:08:31,755 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-28 12:08:31,755 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-28 12:08:31,755 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-08-28 12:08:31,755 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("users")
+2025-08-28 12:08:31,755 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,755 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,757 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_sessions")
+2025-08-28 12:08:31,757 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("user_sessions")
+2025-08-28 12:08:31,757 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,757 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,757 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stocks")
+2025-08-28 12:08:31,757 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stocks")
+2025-08-28 12:08:31,757 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,757 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,757 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("price_history")
+2025-08-28 12:08:31,757 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("price_history")
+2025-08-28 12:08:31,757 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,757 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,758 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_indicators")
+2025-08-28 12:08:31,758 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_indicators")
+2025-08-28 12:08:31,758 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,758 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,758 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("options")
+2025-08-28 12:08:31,758 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("options")
+2025-08-28 12:08:31,758 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,758 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_chains")
+2025-08-28 12:08:31,759 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_chains")
+2025-08-28 12:08:31,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,759 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:08:31,759 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:08:31,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,759 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trades")
+2025-08-28 12:08:31,759 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trades")
+2025-08-28 12:08:31,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,759 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,760 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_book")
+2025-08-28 12:08:31,760 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_book")
+2025-08-28 12:08:31,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,760 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,760 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolios")
+2025-08-28 12:08:31,760 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolios")
+2025-08-28 12:08:31,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,760 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,761 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:08:31,761 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:08:31,761 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,761 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,761 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("watchlists")
+2025-08-28 12:08:31,761 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("watchlists")
+2025-08-28 12:08:31,761 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,761 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,761 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:08:31,761 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:08:31,761 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,761 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,762 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:08:31,762 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:08:31,762 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,762 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,762 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("transactions")
+2025-08-28 12:08:31,762 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("transactions")
+2025-08-28 12:08:31,762 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,762 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,762 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("position_history")
+2025-08-28 12:08:31,762 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("position_history")
+2025-08-28 12:08:31,762 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,762 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,763 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tax_lots")
+2025-08-28 12:08:31,763 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tax_lots")
+2025-08-28 12:08:31,763 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,763 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,764 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alerts")
+2025-08-28 12:08:31,764 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alerts")
+2025-08-28 12:08:31,764 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,764 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,764 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alert_history")
+2025-08-28 12:08:31,764 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alert_history")
+2025-08-28 12:08:31,764 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,764 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,765 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("strategies")
+2025-08-28 12:08:31,765 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("strategies")
+2025-08-28 12:08:31,765 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,765 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,765 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("notifications")
+2025-08-28 12:08:31,765 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("notifications")
+2025-08-28 12:08:31,765 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,765 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,765 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("orders")
+2025-08-28 12:08:31,765 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("orders")
+2025-08-28 12:08:31,765 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,765 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,766 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:08:31,766 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:08:31,766 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,766 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,766 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_contracts")
+2025-08-28 12:08:31,766 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_contracts")
+2025-08-28 12:08:31,766 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,766 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,767 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_orders")
+2025-08-28 12:08:31,767 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_orders")
+2025-08-28 12:08:31,767 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,767 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,768 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_positions")
+2025-08-28 12:08:31,768 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_positions")
+2025-08-28 12:08:31,768 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,768 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,769 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategies")
+2025-08-28 12:08:31,769 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategies")
+2025-08-28 12:08:31,769 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,769 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,770 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:08:31,770 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:08:31,770 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,770 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,770 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_orders")
+2025-08-28 12:08:31,770 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_orders")
+2025-08-28 12:08:31,770 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,770 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,770 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_books")
+2025-08-28 12:08:31,770 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_books")
+2025-08-28 12:08:31,770 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,770 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_makers")
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_makers")
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tick_data")
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tick_data")
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,771 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtests")
+2025-08-28 12:08:31,771 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtests")
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_results")
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_results")
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_results")
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_results")
+2025-08-28 12:08:31,772 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,772 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_limits")
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_limits")
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:08:31,773 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,773 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_reports")
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_reports")
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_models")
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_models")
+2025-08-28 12:08:31,774 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,774 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,775 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:08:31,775 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:08:31,775 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:08:31,775 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:08:31,775 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-28 12:08:31,775 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-28 12:08:31,776 - app.db.database - INFO - Database initialized successfully
+2025-08-28 12:08:32,430 - app.ml.model_manager - INFO - Price prediction model loaded
+2025-08-28 12:08:32,430 - app.ml.model_manager - INFO - Options pricing model loaded
+2025-08-28 12:08:32,430 - app.ml.model_manager - INFO - Pattern recognition model loaded
+2025-08-28 12:08:32,430 - app.ml.model_manager - INFO - Sentiment analysis model loaded
+2025-08-28 12:08:32,430 - app.ml.model_manager - INFO - Risk assessment model loaded
+2025-08-28 12:08:32,430 - app.ml.model_manager - INFO - All models loaded successfully
+2025-08-28 12:08:32,430 - app.main - INFO - Application startup complete
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/v1/endpoints/trading.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-28 12:11:29,552 - app.main - INFO - Shutting down Quantum Trading AI Backend...
+2025-08-28 12:11:29,571 - app.ml.model_manager - INFO - Model manager cleaned up
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1742]
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+INFO:     Started server process [7029]
+INFO:     Waiting for application startup.
+2025-08-28 12:11:38,880 - app.main - INFO - Starting Quantum Trading AI Backend...
+2025-08-28 12:11:38,883 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-28 12:11:38,883 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-28 12:11:38,884 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-08-28 12:11:38,884 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("users")
+2025-08-28 12:11:38,884 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,884 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,886 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_sessions")
+2025-08-28 12:11:38,886 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("user_sessions")
+2025-08-28 12:11:38,886 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,886 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,887 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stocks")
+2025-08-28 12:11:38,887 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stocks")
+2025-08-28 12:11:38,887 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,887 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,888 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("price_history")
+2025-08-28 12:11:38,888 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("price_history")
+2025-08-28 12:11:38,888 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,888 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,889 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_indicators")
+2025-08-28 12:11:38,889 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_indicators")
+2025-08-28 12:11:38,889 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,889 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,890 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("options")
+2025-08-28 12:11:38,890 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("options")
+2025-08-28 12:11:38,890 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,890 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,891 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_chains")
+2025-08-28 12:11:38,891 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_chains")
+2025-08-28 12:11:38,891 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,891 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,891 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:11:38,891 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_greeks_history")
+2025-08-28 12:11:38,891 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,891 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,892 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trades")
+2025-08-28 12:11:38,892 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trades")
+2025-08-28 12:11:38,892 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,892 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,892 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_book")
+2025-08-28 12:11:38,892 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_book")
+2025-08-28 12:11:38,893 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,893 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,894 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolios")
+2025-08-28 12:11:38,894 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolios")
+2025-08-28 12:11:38,895 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,895 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,895 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:11:38,895 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_performance")
+2025-08-28 12:11:38,895 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,895 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,896 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("watchlists")
+2025-08-28 12:11:38,896 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("watchlists")
+2025-08-28 12:11:38,896 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,896 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,896 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:11:38,896 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics")
+2025-08-28 12:11:38,896 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,896 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,896 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:11:38,896 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_positions")
+2025-08-28 12:11:38,896 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,896 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,897 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("transactions")
+2025-08-28 12:11:38,897 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("transactions")
+2025-08-28 12:11:38,897 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,897 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,898 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("position_history")
+2025-08-28 12:11:38,898 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("position_history")
+2025-08-28 12:11:38,898 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,898 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,900 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tax_lots")
+2025-08-28 12:11:38,900 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tax_lots")
+2025-08-28 12:11:38,900 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,900 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,900 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alerts")
+2025-08-28 12:11:38,900 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alerts")
+2025-08-28 12:11:38,900 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,900 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,901 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alert_history")
+2025-08-28 12:11:38,901 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alert_history")
+2025-08-28 12:11:38,901 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,901 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,901 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("strategies")
+2025-08-28 12:11:38,901 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("strategies")
+2025-08-28 12:11:38,902 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,902 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,902 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("notifications")
+2025-08-28 12:11:38,902 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("notifications")
+2025-08-28 12:11:38,902 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,902 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,903 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("orders")
+2025-08-28 12:11:38,903 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("orders")
+2025-08-28 12:11:38,903 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,903 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,904 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:11:38,904 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trading_strategies")
+2025-08-28 12:11:38,904 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,904 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,904 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_contracts")
+2025-08-28 12:11:38,904 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_contracts")
+2025-08-28 12:11:38,904 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,904 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,905 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_orders")
+2025-08-28 12:11:38,905 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_orders")
+2025-08-28 12:11:38,905 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,905 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,907 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_positions")
+2025-08-28 12:11:38,907 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_positions")
+2025-08-28 12:11:38,907 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,907 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,908 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategies")
+2025-08-28 12:11:38,908 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategies")
+2025-08-28 12:11:38,908 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,908 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,912 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:11:38,912 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategy_legs")
+2025-08-28 12:11:38,912 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,912 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,913 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_orders")
+2025-08-28 12:11:38,913 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_orders")
+2025-08-28 12:11:38,913 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,913 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,913 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_books")
+2025-08-28 12:11:38,913 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_books")
+2025-08-28 12:11:38,913 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,913 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,914 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_makers")
+2025-08-28 12:11:38,914 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_makers")
+2025-08-28 12:11:38,914 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,914 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,914 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:11:38,914 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_strategies")
+2025-08-28 12:11:38,914 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,914 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,915 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tick_data")
+2025-08-28 12:11:38,915 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tick_data")
+2025-08-28 12:11:38,915 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,915 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,916 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtests")
+2025-08-28 12:11:38,916 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtests")
+2025-08-28 12:11:38,916 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,916 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,916 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_results")
+2025-08-28 12:11:38,916 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_results")
+2025-08-28 12:11:38,916 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,916 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,916 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:11:38,916 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_trades")
+2025-08-28 12:11:38,916 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,916 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,917 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:11:38,917 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_runs")
+2025-08-28 12:11:38,917 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,917 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,917 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_results")
+2025-08-28 12:11:38,917 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_results")
+2025-08-28 12:11:38,917 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,917 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,917 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:11:38,917 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("walk_forward_analyses")
+2025-08-28 12:11:38,917 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,917 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,918 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:11:38,918 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-28 12:11:38,919 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,919 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,919 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_limits")
+2025-08-28 12:11:38,919 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_limits")
+2025-08-28 12:11:38,919 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,919 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,920 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:11:38,920 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_alerts")
+2025-08-28 12:11:38,920 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,920 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,920 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:11:38,920 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_scenarios")
+2025-08-28 12:11:38,920 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,920 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_results")
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_reports")
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_reports")
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_models")
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_models")
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("model_validation_results")
+2025-08-28 12:11:38,921 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-28 12:11:38,921 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-28 12:11:38,923 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-28 12:11:38,923 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-28 12:11:38,924 - app.db.database - INFO - Database initialized successfully
+2025-08-28 12:11:39,471 - app.ml.model_manager - INFO - Price prediction model loaded
+2025-08-28 12:11:39,471 - app.ml.model_manager - INFO - Options pricing model loaded
+2025-08-28 12:11:39,471 - app.ml.model_manager - INFO - Pattern recognition model loaded
+2025-08-28 12:11:39,471 - app.ml.model_manager - INFO - Sentiment analysis model loaded
+2025-08-28 12:11:39,471 - app.ml.model_manager - INFO - Risk assessment model loaded
+2025-08-28 12:11:39,471 - app.ml.model_manager - INFO - All models loaded successfully
+2025-08-28 12:11:39,471 - app.main - INFO - Application startup complete
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/v1/endpoints/options.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-28 12:14:48,921 - app.main - INFO - Shutting down Quantum Trading AI Backend...
+2025-08-28 12:14:48,932 - app.ml.model_manager - INFO - Model manager cleaned up
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7029]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/api/v1/websocket.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/api/v1/api.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/api/v1/api.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/main.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/main.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/main.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/risk_management.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/hft_engine.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/main.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/backtesting_engine.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/quantum/quantum_algorithms.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/quantum/portfolio_optimizer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/ml/advanced_models.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/ml/deep_rl_agent.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/ml/model_manager.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/ml/advanced_models.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================

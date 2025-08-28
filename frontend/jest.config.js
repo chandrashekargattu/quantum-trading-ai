@@ -18,6 +18,8 @@ const customJestConfig = {
     '^@/store/(.*)$': '<rootDir>/src/store/$1',
     '^@/types/(.*)$': '<rootDir>/src/types/$1',
     '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@/services/(.*)$': '<rootDir>/src/services/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
