@@ -35,7 +35,7 @@ jobs:
         pip-compile --upgrade -o requirements-dev.txt requirements-dev.in || true
     
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'chore: update Python dependencies'
@@ -73,7 +73,7 @@ jobs:
         npm install
     
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'chore: update NPM dependencies'
