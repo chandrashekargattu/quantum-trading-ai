@@ -1,0 +1,159 @@
+
+> quantum-trading-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 2.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.1s (618 modules)
+ ✓ Compiled /not-found in 330ms (600 modules)
+ ○ Compiling /auth/register ...
+ ⨯ ./src/app/auth/register/page.tsx:11:0
+Module not found: Can't resolve '@/hooks/use-toast'
+[0m [90m  9 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[0m
+[0m [90m 10 |[39m [36mimport[39m { [33mAlert[39m[33m,[39m [33mAlertDescription[39m } [36mfrom[39m [32m'@/components/ui/alert'[39m[0m
+[0m[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { useToast } [36mfrom[39m [32m'@/hooks/use-toast'[39m[0m
+[0m [90m 12 |[39m [36mimport[39m { [33mLoader2[39m[33m,[39m [33mAlertCircle[39m } [36mfrom[39m [32m'lucide-react'[39m[0m
+[0m [90m 13 |[39m[0m
+[0m [90m 14 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mRegisterPage[39m() {[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/app/auth/register/page.tsx:11:0
+Module not found: Can't resolve '@/hooks/use-toast'
+[0m [90m  9 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[0m
+[0m [90m 10 |[39m [36mimport[39m { [33mAlert[39m[33m,[39m [33mAlertDescription[39m } [36mfrom[39m [32m'@/components/ui/alert'[39m[0m
+[0m[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { useToast } [36mfrom[39m [32m'@/hooks/use-toast'[39m[0m
+[0m [90m 12 |[39m [36mimport[39m { [33mLoader2[39m[33m,[39m [33mAlertCircle[39m } [36mfrom[39m [32m'lucide-react'[39m[0m
+[0m [90m 13 |[39m[0m
+[0m [90m 14 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mRegisterPage[39m() {[0m
+
+https://nextjs.org/docs/messages/module-not-found
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/chandrashekargattu/quantum-trading-ai/frontend/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/Users/chandrashekargattu/quantum-trading-ai/frontend/.next/cache/webpack/client-development-fallback/0.pack.gz'
+ ⨯ ./src/app/auth/register/page.tsx:11:0
+Module not found: Can't resolve '@/hooks/use-toast'
+[0m [90m  9 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[0m
+[0m [90m 10 |[39m [36mimport[39m { [33mAlert[39m[33m,[39m [33mAlertDescription[39m } [36mfrom[39m [32m'@/components/ui/alert'[39m[0m
+[0m[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { useToast } [36mfrom[39m [32m'@/hooks/use-toast'[39m[0m
+[0m [90m 12 |[39m [36mimport[39m { [33mLoader2[39m[33m,[39m [33mAlertCircle[39m } [36mfrom[39m [32m'lucide-react'[39m[0m
+[0m [90m 13 |[39m[0m
+[0m [90m 14 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mRegisterPage[39m() {[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/app/auth/register/page.tsx:11:0
+Module not found: Can't resolve '@/hooks/use-toast'
+[0m [90m  9 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[0m
+[0m [90m 10 |[39m [36mimport[39m { [33mAlert[39m[33m,[39m [33mAlertDescription[39m } [36mfrom[39m [32m'@/components/ui/alert'[39m[0m
+[0m[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { useToast } [36mfrom[39m [32m'@/hooks/use-toast'[39m[0m
+[0m [90m 12 |[39m [36mimport[39m { [33mLoader2[39m[33m,[39m [33mAlertCircle[39m } [36mfrom[39m [32m'lucide-react'[39m[0m
+[0m [90m 13 |[39m[0m
+[0m [90m 14 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mRegisterPage[39m() {[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/components/ui/label.tsx:4:0
+Module not found: Can't resolve '@radix-ui/react-label'
+[0m [90m 2 |[39m[0m
+[0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mLabelPrimitive[39m [36mfrom[39m [32m"@radix-ui/react-label"[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { cva[33m,[39m type [33mVariantProps[39m } [36mfrom[39m [32m"class-variance-authority"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/auth/register/page.tsx
+ ⨯ ./src/components/ui/label.tsx:4:0
+Module not found: Can't resolve '@radix-ui/react-label'
+[0m [90m 2 |[39m[0m
+[0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mLabelPrimitive[39m [36mfrom[39m [32m"@radix-ui/react-label"[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { cva[33m,[39m type [33mVariantProps[39m } [36mfrom[39m [32m"class-variance-authority"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/auth/register/page.tsx
+ ⨯ ./src/components/ui/label.tsx:4:0
+Module not found: Can't resolve '@radix-ui/react-label'
+[0m [90m 2 |[39m[0m
+[0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mLabelPrimitive[39m [36mfrom[39m [32m"@radix-ui/react-label"[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { cva[33m,[39m type [33mVariantProps[39m } [36mfrom[39m [32m"class-variance-authority"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/auth/register/page.tsx
+ ⨯ ./src/components/ui/label.tsx:4:0
+Module not found: Can't resolve '@radix-ui/react-label'
+[0m [90m 2 |[39m[0m
+[0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mLabelPrimitive[39m [36mfrom[39m [32m"@radix-ui/react-label"[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { cva[33m,[39m type [33mVariantProps[39m } [36mfrom[39m [32m"class-variance-authority"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/auth/register/page.tsx
+ ✓ Compiled /_error in 1055ms (775 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 553ms (780 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 170ms (780 modules)
+ ✓ Compiled in 148ms (780 modules)
+ ✓ Compiled /auth/register in 188ms (370 modules)
+ ✓ Compiled in 480ms (802 modules)
+ ○ Compiling /auth/login ...
+ ✓ Compiled /auth/login in 597ms (1010 modules)
+ ✓ Compiled in 334ms (1010 modules)
+ ⨯ ./src/app/auth/register/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/Users/chandrashekargattu/quantum-trading-ai/frontend/src/app/auth/register/page.tsx[0m:82:1]
+ [2m82[0m |   }
+ [2m83[0m | 
+ [2m84[0m |   return (
+ [2m85[0m |     <div className="flex min-h-screen">
+    : [31;1m     ^^^[0m
+ [2m86[0m |       {/* Left Side - Branding */}
+ [2m87[0m |       <div className="hidden w-1/2 bg-gradient-to-br from-primary via-primary/90 to-primary/80 p-12 lg:flex lg:flex-col lg:justify-between">
+ [2m88[0m |         <div>
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/auth/register/page.tsx
+ ⨯ ./src/app/auth/register/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/Users/chandrashekargattu/quantum-trading-ai/frontend/src/app/auth/register/page.tsx[0m:82:1]
+ [2m82[0m |   }
+ [2m83[0m | 
+ [2m84[0m |   return (
+ [2m85[0m |     <div className="flex min-h-screen">
+    : [31;1m     ^^^[0m
+ [2m86[0m |       {/* Left Side - Branding */}
+ [2m87[0m |       <div className="hidden w-1/2 bg-gradient-to-br from-primary via-primary/90 to-primary/80 p-12 lg:flex lg:flex-col lg:justify-between">
+ [2m88[0m |         <div>
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/auth/register/page.tsx
+ ✓ Compiled in 576ms (883 modules)
+ ✓ Compiled in 524ms (897 modules)
+ ✓ Compiled in 382ms (897 modules)
+ ✓ Compiled /not-found in 312ms (888 modules)
+[?25h

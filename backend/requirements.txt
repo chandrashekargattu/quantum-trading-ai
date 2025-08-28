@@ -1,0 +1,103 @@
+# Core FastAPI
+fastapi==0.109.0
+uvicorn[standard]==0.25.0
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+redis==5.0.1
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.3
+scipy==1.11.4
+
+# ML/AI Libraries
+tensorflow==2.15.0
+torch==2.1.2
+scikit-learn==1.3.2
+xgboost==2.0.3
+prophet==1.1.5
+statsmodels==0.14.1
+
+# Options & Financial Libraries
+yfinance==0.2.33
+alpha-vantage==2.3.1
+ta-lib==0.4.28
+pandas-ta==0.3.14b0
+quantlib==1.33
+
+# Time Series
+tslearn==0.6.2
+pmdarima==2.0.4
+
+# NLP
+transformers==4.36.2
+nltk==3.8.1
+textblob==0.17.1
+
+# WebSocket & Real-time
+python-socketio==5.10.0
+websockets==12.0
+
+# Task Queue
+celery==5.3.4
+flower==2.0.1
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.2
+pytest-cov==4.1.0
+
+# Development
+black==23.12.1
+flake8==7.0.0
+mypy==1.8.0
+
+# Monitoring
+prometheus-client==0.19.0
+
+# HTTP Client
+httpx==0.26.0
+aiohttp==3.9.1
+
+# Utilities
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Quantum Computing
+qiskit==0.45.0
+qiskit-optimization==0.5.0
+qiskit-finance==0.4.0
+pennylane==0.33.0
+
+# Advanced ML/DL
+einops==0.7.0
+gymnasium==0.29.1
+
+# Risk Management & Financial Analysis
+arch==6.2.0
+copulas==0.9.1
+
+# Alternative Data Processing
+tweepy==4.14.0
+praw==7.7.1
+beautifulsoup4==4.12.2
+opencv-python==4.8.1.78
+rasterio==1.3.9
+geopandas==0.14.1
+shapely==2.0.2
+Pillow==10.1.0
+vaderSentiment==3.3.2
+
+# High-Frequency Trading
+numba==0.58.1
+sortedcontainers==2.4.0
+aioredis==2.0.1
+uvloop==0.19.0
