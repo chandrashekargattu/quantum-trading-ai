@@ -19,6 +19,7 @@ from app.api.v1.endpoints import (
     # hft,  # Temporarily disabled - missing dependencies
     # alternative_data  # Temporarily disabled - missing dependencies
 )
+from app.api.v1 import zerodha
 
 api_router = APIRouter()
 
@@ -105,6 +106,13 @@ api_router.include_router(
     deep_rl.router,
     prefix="/deep-rl",
     tags=["reinforcement-learning"]
+)
+
+# Zerodha integration endpoints
+api_router.include_router(
+    zerodha.router,
+    prefix="/zerodha",
+    tags=["zerodha-integration"]
 )
 
 # Temporarily disabled - missing dependencies

@@ -21384,3 +21384,573 @@ ModuleNotFoundError: No module named 'app.schemas.options'
 
 Press Ctrl+C to stop the server
 ==================================================
+WARNING:  StatReload detected changes in 'app/services/gpt_market_analyzer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/ml/multi_timeframe_transformer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/cross_market_arbitrage.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/social_sentiment_analyzer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/indian_market_service.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/indian_sentiment_analyzer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/indian_options_strategies.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/sebi_compliance_service.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/indian_sentiment_analyzer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/indian_sentiment_analyzer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/zerodha_integration.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/services/loss_recovery_analyzer.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/api/v1/zerodha.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/api/v1/api.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
+WARNING:  StatReload detected changes in 'app/api/v1/api.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/start_now.py", line 30, in <module>
+    from app.main import app
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/options.py", line 19, in <module>
+    from app.schemas.options import (
+ModuleNotFoundError: No module named 'app.schemas.options'
+🚀 Starting Quantum Trading AI Backend Server
+==================================================
+📁 Working Directory: /Users/chandrashekargattu/quantum-trading-ai/backend
+🐍 Python Version: 3.10.13
+==================================================
+
+🌐 Server will be available at:
+   - API: http://localhost:8000
+   - Docs: http://localhost:8000/docs
+
+Press Ctrl+C to stop the server
+==================================================
