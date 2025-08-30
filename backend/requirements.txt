@@ -75,7 +75,7 @@ pydantic-settings==2.1.0
 qiskit==0.45.0
 qiskit-optimization==0.6.0
 qiskit-finance==0.4.0
-pennylane==0.33.0
+pennylane==0.42.3
 
 # Advanced ML/DL
 einops==0.7.0
