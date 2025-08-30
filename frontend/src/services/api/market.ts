@@ -49,17 +49,38 @@ export interface MarketQuote {
   timestamp: string
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+
 class MarketService {
+  private getHeaders() {
+    const token = localStorage.getItem('access_token')
+    const tokenType = localStorage.getItem('token_type') || 'Bearer'
+    return {
+      'Content-Type': 'application/json',
+      ...(token ? { 'Authorization': `${tokenType} ${token}` } : {})
+    }
+  }
+
   async getStock(symbol: string): Promise<Stock> {
-    const response = await fetch(`/api/v1/market/stocks/${symbol}`)
+    const response = await fetch(`${API_BASE_URL}/api/v1/market-data/stocks/${symbol}`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch stock data')
     return response.json()
   }
 
+  async getMarketIndicators(): Promise<any[]> {
+    const response = await fetch(`${API_BASE_URL}/api/v1/market-data/indicators`, {
+      headers: this.getHeaders()
+    })
+    if (!response.ok) throw new Error('Failed to fetch market indicators')
+    return response.json()
+  }
+
   async getBatchQuotes(symbols: string[]): Promise<MarketQuote[]> {
-    const response = await fetch('/api/v1/market/quotes', {
+    const response = await fetch(`${API_BASE_URL}/api/v1/market-data/quotes`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
       body: JSON.stringify({ symbols })
     })
     if (!response.ok) throw new Error('Failed to fetch quotes')
@@ -67,13 +88,17 @@ class MarketService {
   }
 
   async getOptionChain(symbol: string): Promise<OptionChain> {
-    const response = await fetch(`/api/v1/options/chain/${symbol}`)
+    const response = await fetch(`${API_BASE_URL}/api/v1/options/chain/${symbol}`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch option chain')
     return response.json()
   }
 
   async searchSymbols(query: string): Promise<Stock[]> {
-    const response = await fetch(`/api/v1/market/search?q=${encodeURIComponent(query)}`)
+    const response = await fetch(`${API_BASE_URL}/api/v1/market-data/search?q=${encodeURIComponent(query)}`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to search symbols')
     return response.json()
   }
@@ -85,7 +110,9 @@ class MarketService {
     topLosers: Stock[]
     mostActive: Stock[]
   }> {
-    const response = await fetch('/api/v1/market/overview')
+    const response = await fetch(`${API_BASE_URL}/api/v1/market-data/overview`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch market overview')
     return response.json()
   }
@@ -109,10 +136,14 @@ class MarketService {
       start: start.toISOString(),
       end: end.toISOString()
     })
-    const response = await fetch(`/api/v1/market/historical?${params}`)
+    const response = await fetch(`${API_BASE_URL}/api/v1/market-data/historical?${params}`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch historical data')
     return response.json()
   }
 }
 
-export const marketService = new MarketService()
+// Note: This service has been replaced with the optimized version
+// Use import { marketService } from './market-optimized' instead
+export const legacyMarketService = new MarketService()

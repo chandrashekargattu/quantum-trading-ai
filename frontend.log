@@ -1,0 +1,15 @@
+
+> quantum-trading-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 1962ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.2s (618 modules)
+ ✓ Compiled in 286ms (303 modules)
+ ✓ Compiled in 50ms (289 modules)
+ ✓ Compiled /auth/login in 392ms (632 modules)
+ ✓ Compiled /auth/register in 141ms (642 modules)
+ ✓ Compiled /not-found in 428ms (647 modules)

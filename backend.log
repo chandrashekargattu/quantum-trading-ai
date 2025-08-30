@@ -1,0 +1,40 @@
+INFO:     Will watch for changes in these directories: ['/Users/chandrashekargattu/quantum-trading-ai/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [45948] using StatReload
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/auth.py", line 15, in <module>
+    from app.schemas.auth import Token, TokenPayload
+ImportError: cannot import name 'TokenPayload' from 'app.schemas.auth' (/Users/chandrashekargattu/quantum-trading-ai/backend/app/schemas/auth.py)
+INFO:     Stopping reloader process [45948]

@@ -1,12 +1,23 @@
 """Trade model for storing trading transactions."""
 
 from datetime import datetime
-from sqlalchemy import Column, String, Float, Integer, DateTime, Boolean, ForeignKey, JSON, Index
+from sqlalchemy import Column, String, Float, Integer, DateTime, Boolean, ForeignKey, JSON, Index, Enum
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
+import enum
 
 from app.db.database import Base
+
+
+class TradeType(str, enum.Enum):
+    """Trade type enumeration."""
+    BUY = "buy"
+    SELL = "sell"
+    BUY_TO_OPEN = "buy_to_open"
+    BUY_TO_CLOSE = "buy_to_close"
+    SELL_TO_OPEN = "sell_to_open"
+    SELL_TO_CLOSE = "sell_to_close"
 
 
 class Trade(Base):

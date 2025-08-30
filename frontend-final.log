@@ -1,0 +1,14 @@
+
+> quantum-trading-frontend@0.1.0 dev
+> next dev
+
+You are using Node.js 18.6.0. For Next.js, Node.js version >= v18.17.0 is required.
+
+> quantum-trading-frontend@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3001
+
+ ✓ Ready in 2.6s

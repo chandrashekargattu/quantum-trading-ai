@@ -1,0 +1,599 @@
+INFO:     Will watch for changes in these directories: ['/Users/chandrashekargattu/quantum-trading-ai/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [25593] using StatReload
+INFO:     Started server process [25683]
+INFO:     Waiting for application startup.
+2025-08-29 21:31:18,428 - app.main - INFO - Starting Quantum Trading AI Backend...
+2025-08-29 21:31:18,430 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:31:18,430 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:31:18,430 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-08-29 21:31:18,430 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("users")
+2025-08-29 21:31:18,430 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,430 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,433 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_sessions")
+2025-08-29 21:31:18,433 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("user_sessions")
+2025-08-29 21:31:18,433 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,433 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,433 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stocks")
+2025-08-29 21:31:18,433 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stocks")
+2025-08-29 21:31:18,433 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,433 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,433 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("price_history")
+2025-08-29 21:31:18,433 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("price_history")
+2025-08-29 21:31:18,433 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,433 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_indicators")
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_indicators")
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("options")
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("options")
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_chains")
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_chains")
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_greeks_history")
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_greeks_history")
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,434 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trades")
+2025-08-29 21:31:18,434 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trades")
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_book")
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_book")
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolios")
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolios")
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_performance")
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_performance")
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("watchlists")
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("watchlists")
+2025-08-29 21:31:18,435 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,435 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics")
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics")
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_positions")
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_positions")
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("transactions")
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("transactions")
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("position_history")
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("position_history")
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tax_lots")
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tax_lots")
+2025-08-29 21:31:18,436 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,436 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alerts")
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alerts")
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alert_history")
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alert_history")
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("strategies")
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("strategies")
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("notifications")
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("notifications")
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("orders")
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("orders")
+2025-08-29 21:31:18,437 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,437 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trading_strategies")
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trading_strategies")
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_contracts")
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_contracts")
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_orders")
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_orders")
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_positions")
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_positions")
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategies")
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategies")
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,438 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategy_legs")
+2025-08-29 21:31:18,438 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategy_legs")
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_orders")
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_orders")
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_books")
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_books")
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_makers")
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_makers")
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_strategies")
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_strategies")
+2025-08-29 21:31:18,439 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,439 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tick_data")
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tick_data")
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtests")
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtests")
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_results")
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_results")
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_trades")
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_trades")
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_runs")
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_runs")
+2025-08-29 21:31:18,440 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,440 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_results")
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_results")
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("walk_forward_analyses")
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("walk_forward_analyses")
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_limits")
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_limits")
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_alerts")
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_alerts")
+2025-08-29 21:31:18,441 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,441 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_scenarios")
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_scenarios")
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_results")
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_results")
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_reports")
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_reports")
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_models")
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_models")
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("model_validation_results")
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("model_validation_results")
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,442 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("audit_logs")
+2025-08-29 21:31:18,442 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("audit_logs")
+2025-08-29 21:31:18,443 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:31:18,443 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:31:18,443 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:31:18,443 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-29 21:31:18,444 - app.db.database - INFO - Database initialized successfully
+2025-08-29 21:31:18,444 - app.main - INFO - Application startup complete
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53130 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53322 - "POST /api/v1/auth/register HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:53521 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53521 - "POST /api/v1/auth/register HTTP/1.1" 422 Unprocessable Entity
+WARNING:  StatReload detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-29 21:33:14,506 - app.main - INFO - Shutting down Quantum Trading AI Backend...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [25683]
+INFO:     Started server process [30767]
+INFO:     Waiting for application startup.
+2025-08-29 21:33:16,717 - app.main - INFO - Starting Quantum Trading AI Backend...
+2025-08-29 21:33:16,718 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:33:16,718 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:33:16,718 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-08-29 21:33:16,718 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("users")
+2025-08-29 21:33:16,718 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,718 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,719 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_sessions")
+2025-08-29 21:33:16,719 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("user_sessions")
+2025-08-29 21:33:16,719 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,719 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,719 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stocks")
+2025-08-29 21:33:16,719 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stocks")
+2025-08-29 21:33:16,719 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,719 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("price_history")
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("price_history")
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_indicators")
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_indicators")
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("options")
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("options")
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_chains")
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_chains")
+2025-08-29 21:33:16,720 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,720 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,721 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_greeks_history")
+2025-08-29 21:33:16,721 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_greeks_history")
+2025-08-29 21:33:16,721 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,721 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,721 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trades")
+2025-08-29 21:33:16,721 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trades")
+2025-08-29 21:33:16,721 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,721 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,721 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_book")
+2025-08-29 21:33:16,721 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_book")
+2025-08-29 21:33:16,721 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,721 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,722 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolios")
+2025-08-29 21:33:16,722 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolios")
+2025-08-29 21:33:16,722 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,722 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,722 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_performance")
+2025-08-29 21:33:16,722 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_performance")
+2025-08-29 21:33:16,722 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,722 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,722 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("watchlists")
+2025-08-29 21:33:16,722 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("watchlists")
+2025-08-29 21:33:16,722 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,722 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics")
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics")
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("portfolio_positions")
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("portfolio_positions")
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("transactions")
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("transactions")
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("position_history")
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("position_history")
+2025-08-29 21:33:16,723 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,723 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tax_lots")
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tax_lots")
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alerts")
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alerts")
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("alert_history")
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("alert_history")
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("strategies")
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("strategies")
+2025-08-29 21:33:16,724 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,724 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,725 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("notifications")
+2025-08-29 21:33:16,725 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("notifications")
+2025-08-29 21:33:16,725 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,725 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,725 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("orders")
+2025-08-29 21:33:16,725 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("orders")
+2025-08-29 21:33:16,725 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,725 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,725 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("trading_strategies")
+2025-08-29 21:33:16,725 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("trading_strategies")
+2025-08-29 21:33:16,725 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,725 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,726 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_contracts")
+2025-08-29 21:33:16,726 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_contracts")
+2025-08-29 21:33:16,726 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,726 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,726 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_orders")
+2025-08-29 21:33:16,726 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_orders")
+2025-08-29 21:33:16,726 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,726 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,726 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_positions")
+2025-08-29 21:33:16,726 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_positions")
+2025-08-29 21:33:16,726 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,726 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategies")
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategies")
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("option_strategy_legs")
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("option_strategy_legs")
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_orders")
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_orders")
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("order_books")
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("order_books")
+2025-08-29 21:33:16,727 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,727 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,728 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("market_makers")
+2025-08-29 21:33:16,728 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("market_makers")
+2025-08-29 21:33:16,728 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,728 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,728 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("hft_strategies")
+2025-08-29 21:33:16,728 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("hft_strategies")
+2025-08-29 21:33:16,728 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,728 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,728 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tick_data")
+2025-08-29 21:33:16,728 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("tick_data")
+2025-08-29 21:33:16,728 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,728 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtests")
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtests")
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_results")
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_results")
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("backtest_trades")
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("backtest_trades")
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_runs")
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_runs")
+2025-08-29 21:33:16,729 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,729 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("optimization_results")
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("optimization_results")
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("walk_forward_analyses")
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("walk_forward_analyses")
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_metrics_detailed")
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,730 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_limits")
+2025-08-29 21:33:16,730 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_limits")
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_alerts")
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_alerts")
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_scenarios")
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_scenarios")
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("stress_test_results")
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("stress_test_results")
+2025-08-29 21:33:16,731 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,731 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_reports")
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_reports")
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("risk_models")
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("risk_models")
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("model_validation_results")
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("model_validation_results")
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("audit_logs")
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("audit_logs")
+2025-08-29 21:33:16,732 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-08-29 21:33:16,732 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-08-29 21:33:16,733 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:33:16,733 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-29 21:33:16,734 - app.db.database - INFO - Database initialized successfully
+2025-08-29 21:33:16,734 - app.main - INFO - Application startup complete
+INFO:     Application startup complete.
+2025-08-29 21:33:42,762 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:33:42,762 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:33:42,837 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.email = ? OR users.username = ?
+2025-08-29 21:33:42,837 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.email = ? OR users.username = ?
+2025-08-29 21:33:42,837 INFO sqlalchemy.engine.Engine [generated in 0.00021s] ('chandrashekargattu@gmail.com', 'chandrashekargattu')
+2025-08-29 21:33:42,837 - sqlalchemy.engine.Engine - INFO - [generated in 0.00021s] ('chandrashekargattu@gmail.com', 'chandrashekargattu')
+2025-08-29 21:33:42,842 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/Users/chandrashekargattu/.pyenv/versions/3.10.13/lib/python3.10/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-29 21:33:43,113 INFO sqlalchemy.engine.Engine INSERT INTO users (id, email, username, full_name, hashed_password, is_active, is_verified, is_superuser, account_type, account_balance, buying_power, subscription_tier, subscription_expires, api_key, api_key_created, preferences, notification_settings, created_at, updated_at, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:33:43,113 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (id, email, username, full_name, hashed_password, is_active, is_verified, is_superuser, account_type, account_balance, buying_power, subscription_tier, subscription_expires, api_key, api_key_created, preferences, notification_settings, created_at, updated_at, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:33:43,113 INFO sqlalchemy.engine.Engine [generated in 0.00033s] ('277d09b8a199445b9a2f25efec0da4eb', 'chandrashekargattu@gmail.com', 'chandrashekargattu', 'chandrashekar Gattu', '$2b$12$kUgtUXCl0E/rdoL0MgBceen2ijM4neIS4icPNeMNU4jJRF5p2N.QK', 1, 0, 0, 'paper', 100000.0, 100000.0, 'free', None, None, None, '{}', '{}', '2025-08-29 16:03:43.112948', '2025-08-29 16:03:43.112954', None)
+2025-08-29 21:33:43,113 - sqlalchemy.engine.Engine - INFO - [generated in 0.00033s] ('277d09b8a199445b9a2f25efec0da4eb', 'chandrashekargattu@gmail.com', 'chandrashekargattu', 'chandrashekar Gattu', '$2b$12$kUgtUXCl0E/rdoL0MgBceen2ijM4neIS4icPNeMNU4jJRF5p2N.QK', 1, 0, 0, 'paper', 100000.0, 100000.0, 'free', None, None, None, '{}', '{}', '2025-08-29 16:03:43.112948', '2025-08-29 16:03:43.112954', None)
+2025-08-29 21:33:43,114 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:33:43,114 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-08-29 21:33:43,115 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:33:43,115 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:33:43,116 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.id = ?
+2025-08-29 21:33:43,116 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.id = ?
+2025-08-29 21:33:43,116 INFO sqlalchemy.engine.Engine [generated in 0.00014s] ('277d09b8a199445b9a2f25efec0da4eb',)
+2025-08-29 21:33:43,116 - sqlalchemy.engine.Engine - INFO - [generated in 0.00014s] ('277d09b8a199445b9a2f25efec0da4eb',)
+2025-08-29 21:33:43,118 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-08-29 21:33:43,118 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:54575 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+2025-08-29 21:34:00,459 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:34:00,459 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:34:00,461 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:34:00,461 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:34:00,461 INFO sqlalchemy.engine.Engine [generated in 0.00023s] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:34:00,461 - sqlalchemy.engine.Engine - INFO - [generated in 0.00023s] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:34:00,729 INFO sqlalchemy.engine.Engine UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:34:00,729 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:34:00,729 INFO sqlalchemy.engine.Engine [generated in 0.00020s] ('2025-08-29 16:04:00.729544', '2025-08-29 16:04:00.727911', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:34:00,729 - sqlalchemy.engine.Engine - INFO - [generated in 0.00020s] ('2025-08-29 16:04:00.729544', '2025-08-29 16:04:00.727911', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:34:00,730 INFO sqlalchemy.engine.Engine INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:34:00,730 - sqlalchemy.engine.Engine - INFO - INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:34:00,731 INFO sqlalchemy.engine.Engine [generated in 0.00017s] ('2a4267c30a9149ddae3055b491d68a5d', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODUyNDAsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.AW-5N0Oa4GJvfcnerjtXWT2xsr3HMSPOVDpsMsD9plQ', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODgyNDAsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.7U27yn6GRqiDH14Hb7oLv0IxddXWNlOq1D_KnZy0Vq8', None, None, None, '2025-08-29 16:04:00.730949', '2025-08-29 16:34:00.727969', '2025-08-29 16:04:00.730952', 1, None)
+2025-08-29 21:34:00,731 - sqlalchemy.engine.Engine - INFO - [generated in 0.00017s] ('2a4267c30a9149ddae3055b491d68a5d', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODUyNDAsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.AW-5N0Oa4GJvfcnerjtXWT2xsr3HMSPOVDpsMsD9plQ', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODgyNDAsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.7U27yn6GRqiDH14Hb7oLv0IxddXWNlOq1D_KnZy0Vq8', None, None, None, '2025-08-29 16:04:00.730949', '2025-08-29 16:34:00.727969', '2025-08-29 16:04:00.730952', 1, None)
+2025-08-29 21:34:00,731 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:34:00,731 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:54776 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2025-08-29 21:36:15,455 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:36:15,455 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:36:15,457 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.id = ?
+2025-08-29 21:36:15,457 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.id = ?
+2025-08-29 21:36:15,457 INFO sqlalchemy.engine.Engine [generated in 0.00022s] ('277d09b8a199445b9a2f25efec0da4eb',)
+2025-08-29 21:36:15,457 - sqlalchemy.engine.Engine - INFO - [generated in 0.00022s] ('277d09b8a199445b9a2f25efec0da4eb',)
+2025-08-29 21:36:15,462 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-08-29 21:36:15,462 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:56276 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2025-08-29 21:36:46,237 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:36:46,237 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:36:46,238 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:36:46,238 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:36:46,238 INFO sqlalchemy.engine.Engine [cached since 165.8s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:36:46,238 - sqlalchemy.engine.Engine - INFO - [cached since 165.8s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:36:46,482 INFO sqlalchemy.engine.Engine UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:36:46,482 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:36:46,482 INFO sqlalchemy.engine.Engine [cached since 165.8s ago] ('2025-08-29 16:06:46.482231', '2025-08-29 16:06:46.481300', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:36:46,482 - sqlalchemy.engine.Engine - INFO - [cached since 165.8s ago] ('2025-08-29 16:06:46.482231', '2025-08-29 16:06:46.481300', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:36:46,483 INFO sqlalchemy.engine.Engine INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:36:46,483 - sqlalchemy.engine.Engine - INFO - INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:36:46,483 INFO sqlalchemy.engine.Engine [cached since 165.8s ago] ('132fa8d287474f7ab1aae06cbc96c02c', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU0MDYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.Xkft_dmggq_9t3WjUg6sWiT98QpbRg906nDil8Yls0g', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg0MDYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.aK-FQG13mF-G_-c6EUYeMHRFQvkgYzLTc7cxfUGcbxo', None, None, None, '2025-08-29 16:06:46.483313', '2025-08-29 16:36:46.481337', '2025-08-29 16:06:46.483317', 1, None)
+2025-08-29 21:36:46,483 - sqlalchemy.engine.Engine - INFO - [cached since 165.8s ago] ('132fa8d287474f7ab1aae06cbc96c02c', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU0MDYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.Xkft_dmggq_9t3WjUg6sWiT98QpbRg906nDil8Yls0g', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg0MDYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.aK-FQG13mF-G_-c6EUYeMHRFQvkgYzLTc7cxfUGcbxo', None, None, None, '2025-08-29 16:06:46.483313', '2025-08-29 16:36:46.481337', '2025-08-29 16:06:46.483317', 1, None)
+2025-08-29 21:36:46,484 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:36:46,484 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:56619 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2025-08-29 21:39:43,355 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:39:43,355 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:39:43,356 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:39:43,356 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:39:43,356 INFO sqlalchemy.engine.Engine [cached since 342.9s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:39:43,356 - sqlalchemy.engine.Engine - INFO - [cached since 342.9s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:39:43,598 INFO sqlalchemy.engine.Engine UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:39:43,598 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:39:43,598 INFO sqlalchemy.engine.Engine [cached since 342.9s ago] ('2025-08-29 16:09:43.598683', '2025-08-29 16:09:43.597740', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:39:43,598 - sqlalchemy.engine.Engine - INFO - [cached since 342.9s ago] ('2025-08-29 16:09:43.598683', '2025-08-29 16:09:43.597740', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:39:43,599 INFO sqlalchemy.engine.Engine INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:39:43,599 - sqlalchemy.engine.Engine - INFO - INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:39:43,599 INFO sqlalchemy.engine.Engine [cached since 342.9s ago] ('709a231bb99e47cb911b89fdbb0365b6', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU1ODMsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.4n-fvoUjlcDM5-GvOslCqrnFrj5VYF42jCgRSENOGN8', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg1ODMsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.s5G82w3oYaEVD2JG8086OTkxf21XuPNm155tc2uLyx4', None, None, None, '2025-08-29 16:09:43.599643', '2025-08-29 16:39:43.597781', '2025-08-29 16:09:43.599650', 1, None)
+2025-08-29 21:39:43,599 - sqlalchemy.engine.Engine - INFO - [cached since 342.9s ago] ('709a231bb99e47cb911b89fdbb0365b6', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU1ODMsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.4n-fvoUjlcDM5-GvOslCqrnFrj5VYF42jCgRSENOGN8', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg1ODMsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.s5G82w3oYaEVD2JG8086OTkxf21XuPNm155tc2uLyx4', None, None, None, '2025-08-29 16:09:43.599643', '2025-08-29 16:39:43.597781', '2025-08-29 16:09:43.599650', 1, None)
+2025-08-29 21:39:43,600 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:39:43,600 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:58448 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2025-08-29 21:41:29,077 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:41:29,077 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:41:29,078 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:41:29,078 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:41:29,078 INFO sqlalchemy.engine.Engine [cached since 448.6s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:41:29,078 - sqlalchemy.engine.Engine - INFO - [cached since 448.6s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:41:29,325 INFO sqlalchemy.engine.Engine UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:41:29,325 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:41:29,325 INFO sqlalchemy.engine.Engine [cached since 448.6s ago] ('2025-08-29 16:11:29.325295', '2025-08-29 16:11:29.324293', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:41:29,325 - sqlalchemy.engine.Engine - INFO - [cached since 448.6s ago] ('2025-08-29 16:11:29.325295', '2025-08-29 16:11:29.324293', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:41:29,326 INFO sqlalchemy.engine.Engine INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:41:29,326 - sqlalchemy.engine.Engine - INFO - INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:41:29,326 INFO sqlalchemy.engine.Engine [cached since 448.6s ago] ('e558921134cb43aca4e01fb5a2020b72', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU2ODksInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.4WWJcnTABndrMDdtxRDElM-TpGQPE9dabHtmrW4bjwk', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg2ODksInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0._fXcxQuACUij5q-e08TtLzYs3xh6vKBCOuyfaNRIwfU', None, None, None, '2025-08-29 16:11:29.326562', '2025-08-29 16:41:29.324336', '2025-08-29 16:11:29.326572', 1, None)
+2025-08-29 21:41:29,326 - sqlalchemy.engine.Engine - INFO - [cached since 448.6s ago] ('e558921134cb43aca4e01fb5a2020b72', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU2ODksInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.4WWJcnTABndrMDdtxRDElM-TpGQPE9dabHtmrW4bjwk', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg2ODksInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0._fXcxQuACUij5q-e08TtLzYs3xh6vKBCOuyfaNRIwfU', None, None, None, '2025-08-29 16:11:29.326562', '2025-08-29 16:41:29.324336', '2025-08-29 16:11:29.326572', 1, None)
+2025-08-29 21:41:29,328 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:41:29,328 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:59633 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2025-08-29 21:44:35,158 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:44:35,158 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:44:35,160 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:44:35,160 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:44:35,160 INFO sqlalchemy.engine.Engine [cached since 634.7s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:44:35,160 - sqlalchemy.engine.Engine - INFO - [cached since 634.7s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:44:35,424 INFO sqlalchemy.engine.Engine UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:44:35,424 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:44:35,424 INFO sqlalchemy.engine.Engine [cached since 634.7s ago] ('2025-08-29 16:14:35.424186', '2025-08-29 16:14:35.423292', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:44:35,424 - sqlalchemy.engine.Engine - INFO - [cached since 634.7s ago] ('2025-08-29 16:14:35.424186', '2025-08-29 16:14:35.423292', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:44:35,425 INFO sqlalchemy.engine.Engine INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:44:35,425 - sqlalchemy.engine.Engine - INFO - INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:44:35,425 INFO sqlalchemy.engine.Engine [cached since 634.7s ago] ('e592f471c6f04b8a86fb1088c16c3ba6', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU4NzUsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.S71ZL0tQUvmPrVzSgA9BgqffWpbOvjSe2oel56lupyc', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg4NzUsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.Fue7NhJaRzPEpv4UW8paVZvsXgbJRHmdxgsCxPLAnHo', None, None, None, '2025-08-29 16:14:35.425035', '2025-08-29 16:44:35.423330', '2025-08-29 16:14:35.425041', 1, None)
+2025-08-29 21:44:35,425 - sqlalchemy.engine.Engine - INFO - [cached since 634.7s ago] ('e592f471c6f04b8a86fb1088c16c3ba6', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODU4NzUsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.S71ZL0tQUvmPrVzSgA9BgqffWpbOvjSe2oel56lupyc', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODg4NzUsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.Fue7NhJaRzPEpv4UW8paVZvsXgbJRHmdxgsCxPLAnHo', None, None, None, '2025-08-29 16:14:35.425035', '2025-08-29 16:44:35.423330', '2025-08-29 16:14:35.425041', 1, None)
+2025-08-29 21:44:35,425 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:44:35,425 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:61702 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63014 - "HEAD /docs HTTP/1.1" 200 OK
+2025-08-29 21:47:06,295 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-08-29 21:47:06,295 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-08-29 21:47:06,297 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:47:06,297 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.email, users.username, users.full_name, users.hashed_password, users.is_active, users.is_verified, users.is_superuser, users.account_type, users.account_balance, users.buying_power, users.subscription_tier, users.subscription_expires, users.api_key, users.api_key_created, users.preferences, users.notification_settings, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.username = ? OR users.email = ?
+2025-08-29 21:47:06,297 INFO sqlalchemy.engine.Engine [cached since 785.8s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:47:06,297 - sqlalchemy.engine.Engine - INFO - [cached since 785.8s ago] ('chandrashekargattu@gmail.com', 'chandrashekargattu@gmail.com')
+2025-08-29 21:47:06,549 INFO sqlalchemy.engine.Engine UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:47:06,549 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=?, last_login=? WHERE users.id = ?
+2025-08-29 21:47:06,549 INFO sqlalchemy.engine.Engine [cached since 785.8s ago] ('2025-08-29 16:17:06.549054', '2025-08-29 16:17:06.548112', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:47:06,549 - sqlalchemy.engine.Engine - INFO - [cached since 785.8s ago] ('2025-08-29 16:17:06.549054', '2025-08-29 16:17:06.548112', '277d09b8a199445b9a2f25efec0da4eb')
+2025-08-29 21:47:06,550 INFO sqlalchemy.engine.Engine INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:47:06,550 - sqlalchemy.engine.Engine - INFO - INSERT INTO user_sessions (id, user_id, access_token, refresh_token, ip_address, user_agent, device_type, created_at, expires_at, last_activity, is_active, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-29 21:47:06,550 INFO sqlalchemy.engine.Engine [cached since 785.8s ago] ('1f37ee29726643ca8884733ddae956b8', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODYwMjYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.FNZvzJ3J3WVDCi3C3fidKm3oVxu57dL553AUXihytUk', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODkwMjYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.HDlQoO8MMKnIGWA9UM2g4Hsq57-P9gbk-oF9FASUT9k', None, None, None, '2025-08-29 16:17:06.550046', '2025-08-29 16:47:06.548152', '2025-08-29 16:17:06.550055', 1, None)
+2025-08-29 21:47:06,550 - sqlalchemy.engine.Engine - INFO - [cached since 785.8s ago] ('1f37ee29726643ca8884733ddae956b8', '277d09b8a199445b9a2f25efec0da4eb', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTY0ODYwMjYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJhY2Nlc3MifQ.FNZvzJ3J3WVDCi3C3fidKm3oVxu57dL553AUXihytUk', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcwODkwMjYsInN1YiI6IjI3N2QwOWI4LWExOTktNDQ1Yi05YTJmLTI1ZWZlYzBkYTRlYiIsInR5cGUiOiJyZWZyZXNoIn0.HDlQoO8MMKnIGWA9UM2g4Hsq57-P9gbk-oF9FASUT9k', None, None, None, '2025-08-29 16:17:06.550046', '2025-08-29 16:47:06.548152', '2025-08-29 16:17:06.550055', 1, None)
+2025-08-29 21:47:06,550 INFO sqlalchemy.engine.Engine COMMIT
+2025-08-29 21:47:06,550 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:63358 - "POST /api/v1/auth/login HTTP/1.1" 200 OK

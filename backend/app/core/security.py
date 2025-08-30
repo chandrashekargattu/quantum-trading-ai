@@ -68,6 +68,17 @@ def verify_token(token: str, token_type: str = "access") -> Optional[str]:
         return None
 
 
+def decode_access_token(token: str) -> Optional[dict]:
+    """Decode JWT access token and return payload."""
+    try:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        if payload.get("type") != "access":
+            return None
+        return payload
+    except JWTError:
+        return None
+
+
 def generate_api_key() -> str:
     """Generate a secure API key."""
     return secrets.token_urlsafe(32)

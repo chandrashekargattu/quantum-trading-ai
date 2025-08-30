@@ -1,0 +1,71 @@
+🚀 Quantum Trading AI - Starting Application
+==========================================
+
+🧹 Cleaning up existing processes...
+Killing process on port 3000...
+
+[0;34m📦 Setting up Node.js environment...[0m
+Now using node v18.20.0 (npm v10.5.0)
+[0;32m✓ Using Node.js v18.20.0[0m
+
+[0;34m🎨 Starting Frontend...[0m
+Frontend PID: 45751
+
+[0;34m🔧 Starting Backend...[0m
+Backend PID: 45948
+
+⏳ Waiting for services to start...
+
+[0;34m📊 Status Check:[0m
+===============
+[0;32m✅ Frontend: http://localhost:3000[0m
+[0;32m   ✓ Main page loaded successfully[0m
+[0;31m❌ Backend: Not responding[0m
+   Last 5 lines of backend.log:
+       File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+         from app.api.v1.endpoints import (
+       File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/auth.py", line 15, in <module>
+         from app.schemas.auth import Token, TokenPayload
+     ImportError: cannot import name 'TokenPayload' from 'app.schemas.auth' (/Users/chandrashekargattu/quantum-trading-ai/backend/app/schemas/auth.py)
+
+[0;34m📝 Quick Commands:[0m
+==================
+• View frontend logs: tail -f frontend.log
+• View backend logs:  tail -f backend.log
+• Stop all servers:   ./STOP_APP.sh
+• Restart servers:    ./START_APP.sh
+
+[0;32m🎉 Application is ready![0m
+Open your browser and go to: [0;34mhttp://localhost:3000[0m
+
+[1;33mPress Ctrl+C to stop watching (servers will continue running)[0m
+
+==> frontend.log <==
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 1962ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.2s (618 modules)
+ ✓ Compiled in 286ms (303 modules)
+ ✓ Compiled in 50ms (289 modules)
+
+==> backend.log <==
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/main.py", line 12, in <module>
+    from app.api.v1.api import api_router
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/api.py", line 5, in <module>
+    from app.api.v1.endpoints import (
+  File "/Users/chandrashekargattu/quantum-trading-ai/backend/app/api/v1/endpoints/auth.py", line 15, in <module>
+    from app.schemas.auth import Token, TokenPayload
+ImportError: cannot import name 'TokenPayload' from 'app.schemas.auth' (/Users/chandrashekargattu/quantum-trading-ai/backend/app/schemas/auth.py)
+INFO:     Stopping reloader process [45948]
+
+==> frontend.log <==
+ ✓ Compiled /auth/login in 392ms (632 modules)
+ ✓ Compiled /auth/register in 141ms (642 modules)
+ ✓ Compiled /not-found in 428ms (647 modules)

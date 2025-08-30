@@ -9,6 +9,27 @@ from sqlalchemy import select, and_
 from app.models.portfolio import Portfolio, RiskMetrics
 from app.models.position import Position
 
+
+def calculate_position_size(account_value: float, risk_percent: float, stop_loss_percent: float) -> float:
+    """
+    Calculate position size based on account value and risk parameters.
+    
+    Args:
+        account_value: Total account value
+        risk_percent: Percentage of account to risk (e.g., 0.02 for 2%)
+        stop_loss_percent: Stop loss distance as percentage (e.g., 0.05 for 5%)
+        
+    Returns:
+        Position size in currency units
+    """
+    if stop_loss_percent <= 0:
+        raise ValueError("Stop loss percentage must be greater than 0")
+    
+    risk_amount = account_value * risk_percent
+    position_size = risk_amount / stop_loss_percent
+    
+    return position_size
+
 async def calculate_portfolio_risk(
     portfolio: Portfolio,
     db: AsyncSession

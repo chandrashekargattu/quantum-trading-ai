@@ -14,12 +14,12 @@ from app.api.v1.endpoints import (
     strategies,
     market_data,
     backtest,
-    quantum,
-    deep_rl,
+    # quantum,  # Temporarily disabled
+    # deep_rl,  # Temporarily disabled
     # hft,  # Temporarily disabled - missing dependencies
     # alternative_data  # Temporarily disabled - missing dependencies
 )
-from app.api.v1 import zerodha
+# from app.api.v1 import zerodha  # Temporarily disabled
 
 api_router = APIRouter()
 
@@ -96,24 +96,24 @@ api_router.include_router(
 )
 
 # Advanced features endpoints
-api_router.include_router(
-    quantum.router,
-    prefix="/quantum",
-    tags=["quantum-computing"]
-)
+# api_router.include_router(
+#     quantum.router,
+#     prefix="/quantum",
+#     tags=["quantum-computing"]
+# )  # Temporarily disabled
 
-api_router.include_router(
-    deep_rl.router,
-    prefix="/deep-rl",
-    tags=["reinforcement-learning"]
-)
+# api_router.include_router(
+#     deep_rl.router,
+#     prefix="/deep-rl",
+#     tags=["reinforcement-learning"]
+# )  # Temporarily disabled
 
 # Zerodha integration endpoints
-api_router.include_router(
-    zerodha.router,
-    prefix="/zerodha",
-    tags=["zerodha-integration"]
-)
+# api_router.include_router(
+#     zerodha.router,
+#     prefix="/zerodha",
+#     tags=["zerodha-integration"]
+# )  # Temporarily disabled
 
 # Temporarily disabled - missing dependencies
 # api_router.include_router(

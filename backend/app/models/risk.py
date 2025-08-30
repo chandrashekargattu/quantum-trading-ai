@@ -287,3 +287,29 @@ class ModelValidationResult(Base):
     
     # Relationships
     risk_model = relationship("RiskModel", back_populates="validation_results")
+
+
+# Alias for compatibility
+RiskLimit = RiskLimits
+
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    action = Column(String, nullable=False)
+    entity_type = Column(String, nullable=False)
+    entity_id = Column(UUID(as_uuid=True))
+    
+    # Details
+    old_values = Column(JSON)
+    new_values = Column(JSON)
+    ip_address = Column(String)
+    user_agent = Column(String)
+    
+    # Timestamp
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationships
+    user = relationship("User")

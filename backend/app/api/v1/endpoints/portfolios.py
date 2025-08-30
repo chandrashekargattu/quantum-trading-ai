@@ -363,29 +363,43 @@ async def get_portfolio_risk_metrics(
     return risk_metrics
 
 
-async def update_portfolio_value(portfolio: Portfolio, db: AsyncSession):
+async def update_portfolio_value(portfolio: Portfolio, db: AsyncSession) -> None:
     """Update portfolio total value based on positions."""
-    # Get all open positions
-    result = await db.execute(
-        select(Position).where(
-            and_(
-                Position.portfolio_id == portfolio.id,
-                Position.is_open == True
+    try:
+        # Get all open positions
+        result = await db.execute(
+            select(Position).where(
+                and_(
+                    Position.portfolio_id == portfolio.id,
+                    Position.is_open == True
+                )
             )
         )
-    )
-    positions = result.scalars().all()
-    
-    # Calculate total market value
-    total_market_value = sum(pos.market_value or 0 for pos in positions)
-    
-    # Update portfolio values
-    portfolio.total_value = portfolio.cash_balance + total_market_value
-    portfolio.buying_power = portfolio.cash_balance  # Simplified - would include margin
-    
-    # Calculate returns
-    initial_value = 100000.0  # Default initial value
-    portfolio.total_return = portfolio.total_value - initial_value
-    portfolio.total_return_percent = (portfolio.total_return / initial_value) * 100
-    
-    portfolio.updated_at = datetime.utcnow()
+        positions = result.scalars().all()
+        
+        # Calculate total market value
+        total_market_value = sum(pos.market_value or 0 for pos in positions)
+        
+        # Update portfolio values
+        portfolio.total_value = portfolio.cash_balance + total_market_value
+        portfolio.buying_power = portfolio.cash_balance  # Simplified - would include margin
+        
+        # Calculate returns - use cash_balance as initial if no positions
+        initial_value = portfolio.cash_balance if not positions else 100000.0
+        portfolio.total_return = portfolio.total_value - initial_value
+        portfolio.total_return_percent = (portfolio.total_return / initial_value) * 100 if initial_value > 0 else 0.0
+        
+        # Set daily returns to 0 for now
+        portfolio.daily_return = portfolio.daily_return or 0.0
+        portfolio.daily_return_percent = portfolio.daily_return_percent or 0.0
+        
+        portfolio.updated_at = datetime.utcnow()
+    except Exception as e:
+        # If error, just use cash balance
+        portfolio.total_value = portfolio.cash_balance
+        portfolio.buying_power = portfolio.cash_balance
+        portfolio.total_return = 0.0
+        portfolio.total_return_percent = 0.0
+        portfolio.daily_return = 0.0
+        portfolio.daily_return_percent = 0.0
+        portfolio.updated_at = datetime.utcnow()

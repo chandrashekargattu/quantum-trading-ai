@@ -4,8 +4,12 @@ import { persist } from 'zustand/middleware'
 interface User {
   id: string
   email: string
-  firstName: string
-  lastName: string
+  username: string
+  full_name: string | null
+  account_type: string
+  subscription_tier: string
+  is_active: boolean
+  is_verified: boolean
 }
 
 interface AuthState {
@@ -16,6 +20,7 @@ interface AuthState {
   login: (email: string, password: string) => Promise<void>
   logout: () => void
   clearError: () => void
+  fetchUser: () => Promise<void>
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -74,13 +79,8 @@ export const useAuthStore = create<AuthState>()(
 
           const userData = await userResponse.json()
           
-          // Transform user data
-          const user: User = {
-            id: userData.id,
-            email: userData.email,
-            firstName: userData.first_name,
-            lastName: userData.last_name,
-          }
+          // Use user data directly from API
+          const user: User = userData
 
           // Store user in localStorage
           localStorage.setItem('user', JSON.stringify(user))
@@ -117,6 +117,49 @@ export const useAuthStore = create<AuthState>()(
 
       clearError: () => {
         set({ error: null })
+      },
+
+      fetchUser: async () => {
+        const token = localStorage.getItem('access_token')
+        const tokenType = localStorage.getItem('token_type')
+
+        if (!token || !tokenType) {
+          set({ isAuthenticated: false, user: null })
+          return
+        }
+
+        set({ isLoading: true })
+
+        try {
+          const response = await fetch('http://localhost:8000/api/v1/auth/me', {
+            headers: {
+              'Authorization': `${tokenType} ${token}`,
+            },
+          })
+
+          if (!response.ok) {
+            throw new Error('Failed to fetch user')
+          }
+
+          const userData = await response.json()
+          const user: User = userData
+
+          set({
+            user,
+            isAuthenticated: true,
+            isLoading: false,
+          })
+        } catch (error) {
+          localStorage.removeItem('access_token')
+          localStorage.removeItem('token_type')
+          localStorage.removeItem('user')
+          
+          set({
+            user: null,
+            isAuthenticated: false,
+            isLoading: false,
+          })
+        }
       },
     }),
     {

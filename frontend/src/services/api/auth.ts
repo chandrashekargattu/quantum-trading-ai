@@ -1,3 +1,5 @@
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+
 export interface LoginCredentials {
   email: string
   password: string
@@ -44,13 +46,18 @@ export interface PasswordChange {
 }
 
 class AuthService {
-  private baseUrl = '/api/v1/auth'
+  private baseUrl = `${API_BASE_URL}/api/v1/auth`
 
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
+    // Backend expects form data with username field
+    const formData = new URLSearchParams()
+    formData.append('username', credentials.email) // Backend uses username field for email
+    formData.append('password', credentials.password)
+    
     const response = await fetch(`${this.baseUrl}/login`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(credentials)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
     })
     
     if (!response.ok) {
@@ -58,14 +65,45 @@ class AuthService {
       throw new Error(error.detail || 'Login failed')
     }
     
-    return response.json()
+    const data = await response.json()
+    
+    // The backend doesn't return user data, so we need to fetch it
+    if (data.access_token) {
+      localStorage.setItem('access_token', data.access_token)
+      localStorage.setItem('token_type', data.token_type || 'bearer')
+      if (data.refresh_token) {
+        localStorage.setItem('refresh_token', data.refresh_token)
+      }
+      
+      // Fetch user data
+      const userResponse = await fetch(`${API_BASE_URL}/api/v1/users/me`, {
+        headers: {
+          'Authorization': `${data.token_type || 'bearer'} ${data.access_token}`
+        }
+      })
+      
+      if (userResponse.ok) {
+        const user = await userResponse.json()
+        return { ...data, user }
+      }
+    }
+    
+    return data
   }
 
   async register(credentials: RegisterCredentials): Promise<AuthResponse> {
+    // Map frontend fields to backend expected fields
+    const registrationData = {
+      email: credentials.email,
+      username: credentials.username || credentials.email.split('@')[0], // Use email prefix as username if not provided
+      password: credentials.password,
+      full_name: credentials.fullName || ''
+    }
+    
     const response = await fetch(`${this.baseUrl}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(credentials)
+      body: JSON.stringify(registrationData)
     })
     
     if (!response.ok) {
@@ -73,7 +111,15 @@ class AuthService {
       throw new Error(error.detail || 'Registration failed')
     }
     
-    return response.json()
+    const user = await response.json()
+    
+    // After successful registration, login to get tokens
+    const loginResponse = await this.login({
+      email: credentials.email,
+      password: credentials.password
+    })
+    
+    return loginResponse
   }
 
   async logout(refreshToken?: string): Promise<void> {

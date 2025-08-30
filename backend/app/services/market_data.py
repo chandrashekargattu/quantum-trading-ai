@@ -253,19 +253,19 @@ class MarketDataService:
             return None
     
     async def fetch_market_indicators(self) -> List[Dict[str, Any]]:
-        """Fetch major market indicators."""
+        """Fetch major market indicators - Indian Markets."""
         indicators = []
         
-        # Major indices
+        # Major Indian indices and commodities
         indices = {
-            '^GSPC': 'S&P 500',
-            '^DJI': 'Dow Jones',
-            '^IXIC': 'NASDAQ',
-            '^VIX': 'VIX',
-            '^TNX': '10-Year Treasury',
+            '^NSEI': 'NIFTY 50',
+            '^BSESN': 'SENSEX',
+            '^NSEBANK': 'Bank Nifty',
+            'NIFTY_FIN_SERVICE.NS': 'Nifty Financial',
+            '^NSMIDCP': 'Nifty Midcap',
             'GC=F': 'Gold',
+            'SI=F': 'Silver',
             'CL=F': 'Crude Oil',
-            'BTC-USD': 'Bitcoin',
         }
         
         for symbol, name in indices.items():

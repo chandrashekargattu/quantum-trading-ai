@@ -4,15 +4,15 @@ import userEvent from '@testing-library/user-event'
 import { useMarketStore } from '@/store/useMarketStore'
 import { useTradingStore } from '@/store/useTradingStore'
 import { usePortfolioStore } from '@/store/usePortfolioStore'
-import { marketService } from '@/services/api/market'
+import { marketService } from '@/services/api/market-optimized'
 import { tradingService } from '@/services/api/trading'
-import { portfolioService } from '@/services/api/portfolio'
+import { portfolioService } from '@/services/api/portfolio-optimized'
 import toast from 'react-hot-toast'
 
 // Mock services
-jest.mock('@/services/api/market')
+jest.mock('@/services/api/market-optimized')
 jest.mock('@/services/api/trading')
-jest.mock('@/services/api/portfolio')
+jest.mock('@/services/api/portfolio-optimized')
 jest.mock('react-hot-toast')
 
 // Mock WebSocket

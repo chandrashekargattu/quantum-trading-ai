@@ -50,10 +50,10 @@ export default function RegisterPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          first_name: formData.firstName,
-          last_name: formData.lastName,
+          username: formData.email.split('@')[0], // Generate username from email
           email: formData.email,
-          password: formData.password
+          password: formData.password,
+          full_name: `${formData.firstName} ${formData.lastName}`.trim()
         }),
       })
       

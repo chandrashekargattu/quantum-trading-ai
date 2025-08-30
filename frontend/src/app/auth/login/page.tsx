@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -12,6 +12,7 @@ import { Loader2, AlertCircle, TrendingUp, BarChart3, Zap, Shield, Mail, Lock, E
 
 export default function LoginPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -21,13 +22,50 @@ export default function LoginPage() {
     password: ''
   })
 
+  // Security: Check if credentials are in URL and show warning
+  useEffect(() => {
+    const urlEmail = searchParams.get('email')
+    const urlPassword = searchParams.get('password')
+    
+    if (urlEmail || urlPassword) {
+      setError('⚠️ Security Warning: Never share URLs containing passwords! Your credentials were exposed in the URL.')
+      // Clear the URL without reloading the page
+      const newUrl = window.location.pathname
+      window.history.replaceState({}, '', newUrl)
+      
+      // IMPORTANT: Do not auto-fill form with URL parameters for security
+      // This prevents password from being used even if in URL
+      return
+    }
+  }, [searchParams])
+  
+  // Additional safety: Clear URL on component mount
+  useEffect(() => {
+    if (window.location.search) {
+      window.history.replaceState({}, '', window.location.pathname)
+    }
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    e.stopPropagation() // Stop event bubbling
+    
+    // Double-check form data
+    if (!formData.email || !formData.password) {
+      setError('Please enter both email and password')
+      return
+    }
+    
     setError('')
     setIsLoading(true)
     
     try {
-      const response = await fetch('http://localhost:8000/api/v1/auth/login', {
+      // Use environment variable or fallback
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      
+      console.log('Attempting login for:', formData.email) // Debug log (don't log password!)
+      
+      const response = await fetch(`${apiUrl}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -38,20 +76,43 @@ export default function LoginPage() {
         }),
       })
       
+      console.log('Response status:', response.status) // Debug log
+      
       if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.detail || 'Login failed')
+        const errorText = await response.text()
+        console.error('Login error response:', errorText) // Debug log
+        
+        try {
+          const errorData = JSON.parse(errorText)
+          throw new Error(errorData.detail || `Login failed: ${response.status}`)
+        } catch (parseError) {
+          throw new Error(`Login failed: ${response.status} - ${errorText}`)
+        }
       }
       
       const data = await response.json()
+      console.log('Login successful, received token') // Debug log
       
       // Store the access token
       localStorage.setItem('access_token', data.access_token)
-      localStorage.setItem('token_type', data.token_type)
+      localStorage.setItem('token_type', data.token_type || 'bearer')
+      
+      // Also fetch user data
+      const userResponse = await fetch(`${apiUrl}/api/v1/users/me`, {
+        headers: {
+          'Authorization': `${data.token_type || 'bearer'} ${data.access_token}`
+        }
+      })
+      
+      if (userResponse.ok) {
+        const userData = await userResponse.json()
+        console.log('User data fetched successfully') // Debug log
+      }
       
       // Redirect to dashboard
       router.push('/dashboard')
     } catch (err) {
+      console.error('Login error:', err) // Debug log
       setError(err instanceof Error ? err.message : 'Login failed')
     } finally {
       setIsLoading(false)
@@ -120,7 +181,7 @@ export default function LoginPage() {
             </p>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} method="POST" className="space-y-6">
             {error && (
               <Alert variant="destructive" className="animate-in fade-in slide-in-from-top-1">
                 <AlertCircle className="h-4 w-4" />

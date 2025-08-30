@@ -1,9 +1,9 @@
 import { renderHook, act, waitFor } from '@testing-library/react'
 import { useMarketStore } from '../useMarketStore'
-import { marketService } from '@/services/api/market'
+import { marketService } from '@/services/api/market-optimized'
 
 // Mock the market service
-jest.mock('@/services/api/market', () => ({
+jest.mock('@/services/api/market-optimized', () => ({
   marketService: {
     getStock: jest.fn(),
     getOptionChain: jest.fn(),

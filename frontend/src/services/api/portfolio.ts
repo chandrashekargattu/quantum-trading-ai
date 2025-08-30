@@ -72,15 +72,30 @@ export interface Transaction {
   description?: string
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+
 class PortfolioService {
+  private getHeaders() {
+    const token = localStorage.getItem('access_token')
+    const tokenType = localStorage.getItem('token_type') || 'Bearer'
+    return {
+      'Content-Type': 'application/json',
+      ...(token ? { 'Authorization': `${tokenType} ${token}` } : {})
+    }
+  }
+
   async getPortfolios(): Promise<Portfolio[]> {
-    const response = await fetch('/api/v1/portfolios')
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch portfolios')
     return response.json()
   }
 
   async getPortfolio(id: string): Promise<Portfolio> {
-    const response = await fetch(`/api/v1/portfolios/${id}`)
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/${id}`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch portfolio')
     return response.json()
   }
@@ -89,9 +104,9 @@ class PortfolioService {
     name: string
     initialCapital: number
   }): Promise<Portfolio> {
-    const response = await fetch('/api/v1/portfolios', {
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
       body: JSON.stringify(data)
     })
     if (!response.ok) throw new Error('Failed to create portfolio')
@@ -99,9 +114,9 @@ class PortfolioService {
   }
 
   async updatePortfolio(id: string, data: Partial<Portfolio>): Promise<Portfolio> {
-    const response = await fetch(`/api/v1/portfolios/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/${id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
       body: JSON.stringify(data)
     })
     if (!response.ok) throw new Error('Failed to update portfolio')
@@ -109,29 +124,33 @@ class PortfolioService {
   }
 
   async deletePortfolio(id: string): Promise<void> {
-    const response = await fetch(`/api/v1/portfolios/${id}`, {
-      method: 'DELETE'
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/${id}`, {
+      method: 'DELETE',
+      headers: this.getHeaders()
     })
     if (!response.ok) throw new Error('Failed to delete portfolio')
   }
 
   async getPositions(portfolioId: string): Promise<Position[]> {
-    const response = await fetch(`/api/v1/portfolios/${portfolioId}/positions`)
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/${portfolioId}/positions`, {
+      headers: this.getHeaders()
+    })
     if (!response.ok) throw new Error('Failed to fetch positions')
     return response.json()
   }
 
   async closePosition(portfolioId: string, positionId: string): Promise<void> {
     const response = await fetch(
-      `/api/v1/portfolios/${portfolioId}/positions/${positionId}/close`,
-      { method: 'POST' }
+      `${API_BASE_URL}/api/v1/portfolios/${portfolioId}/positions/${positionId}/close`,
+      { method: 'POST', headers: this.getHeaders() }
     )
     if (!response.ok) throw new Error('Failed to close position')
   }
 
   async getPerformance(portfolioId: string, period: string): Promise<Performance> {
     const response = await fetch(
-      `/api/v1/portfolios/${portfolioId}/performance?period=${period}`
+      `${API_BASE_URL}/api/v1/portfolios/${portfolioId}/performance?period=${period}`,
+      { headers: this.getHeaders() }
     )
     if (!response.ok) throw new Error('Failed to fetch performance')
     return response.json()
@@ -139,17 +158,17 @@ class PortfolioService {
 
   async getTransactions(portfolioId: string, limit?: number): Promise<Transaction[]> {
     const url = limit 
-      ? `/api/v1/portfolios/${portfolioId}/transactions?limit=${limit}`
-      : `/api/v1/portfolios/${portfolioId}/transactions`
-    const response = await fetch(url)
+      ? `${API_BASE_URL}/api/v1/portfolios/${portfolioId}/transactions?limit=${limit}`
+      : `${API_BASE_URL}/api/v1/portfolios/${portfolioId}/transactions`
+    const response = await fetch(url, { headers: this.getHeaders() })
     if (!response.ok) throw new Error('Failed to fetch transactions')
     return response.json()
   }
 
   async addFunds(portfolioId: string, amount: number): Promise<Transaction> {
-    const response = await fetch(`/api/v1/portfolios/${portfolioId}/deposit`, {
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/${portfolioId}/deposit`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
       body: JSON.stringify({ amount })
     })
     if (!response.ok) throw new Error('Failed to add funds')
@@ -157,9 +176,9 @@ class PortfolioService {
   }
 
   async withdrawFunds(portfolioId: string, amount: number): Promise<Transaction> {
-    const response = await fetch(`/api/v1/portfolios/${portfolioId}/withdraw`, {
+    const response = await fetch(`${API_BASE_URL}/api/v1/portfolios/${portfolioId}/withdraw`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: this.getHeaders(),
       body: JSON.stringify({ amount })
     })
     if (!response.ok) throw new Error('Failed to withdraw funds')
@@ -167,4 +186,6 @@ class PortfolioService {
   }
 }
 
-export const portfolioService = new PortfolioService()
+// Note: This service has been replaced with the optimized version
+// Use import { portfolioService } from './portfolio-optimized' instead
+export const legacyPortfolioService = new PortfolioService()

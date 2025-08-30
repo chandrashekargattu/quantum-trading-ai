@@ -1,164 +1,322 @@
-import { render, screen } from '@/test-utils/test-utils'
+import React from 'react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { PortfolioSummary } from '../PortfolioSummary'
-import { useQuery } from '@tanstack/react-query'
-import { mockPortfolio } from '@/test-utils/test-utils'
+import { portfolioService } from '@/services/api/portfolio'
+import { toast } from 'react-hot-toast'
 
-jest.mock('@tanstack/react-query')
+// Mock the services
+jest.mock('@/services/api/portfolio')
+jest.mock('react-hot-toast')
+
+// Mock next/link
+jest.mock('next/link', () => {
+  return ({ children, href }: { children: React.ReactNode; href: string }) => {
+    return <a href={href}>{children}</a>
+  }
+})
+
+// Mock utils
+jest.mock('@/lib/utils', () => ({
+  formatCurrency: (value: number) => `₹${value.toLocaleString('en-IN')}`,
+  formatPercentage: (value: number) => `${(value * 100).toFixed(2)}%`
+}))
+
+const mockPortfolioService = portfolioService as jest.Mocked<typeof portfolioService>
+const mockToast = toast as jest.Mocked<typeof toast>
 
 describe('PortfolioSummary', () => {
+  let queryClient: QueryClient
+
   beforeEach(() => {
+    queryClient = new QueryClient({
+      defaultOptions: {
+        queries: { retry: false },
+        mutations: { retry: false }
+      }
+    })
     jest.clearAllMocks()
   })
 
-  it('renders loading state', () => {
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: null,
-      isLoading: true,
+  const renderComponent = () => {
+    return render(
+      <QueryClientProvider client={queryClient}>
+        <PortfolioSummary />
+      </QueryClientProvider>
+    )
+  }
+
+  describe('Loading State', () => {
+    it('should show loading skeleton while fetching portfolios', async () => {
+      mockPortfolioService.getPortfolios.mockImplementation(() => 
+        new Promise(() => {}) // Never resolves
+      )
+
+      renderComponent()
+
+      expect(screen.getByText('Portfolio Summary')).toBeInTheDocument()
+      expect(screen.getByTestId('portfolio-loading-skeleton')).toBeInTheDocument()
     })
-
-    render(<PortfolioSummary />)
-
-    expect(screen.getByText('Portfolio Summary')).toBeInTheDocument()
-    expect(document.querySelector('.animate-pulse')).toBeInTheDocument()
   })
 
-  it('renders empty state when no portfolio exists', () => {
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: [],
-      isLoading: false,
+  describe('Empty State', () => {
+    it('should show create portfolio button when no portfolios exist', async () => {
+      mockPortfolioService.getPortfolios.mockResolvedValue([])
+
+      renderComponent()
+
+      await waitFor(() => {
+        expect(screen.getByText('No portfolio found. Create one to start trading.')).toBeInTheDocument()
+        expect(screen.getByText('Create Portfolio')).toBeInTheDocument()
+      })
     })
 
-    render(<PortfolioSummary />)
+    it('should show create portfolio form when button is clicked', async () => {
+      mockPortfolioService.getPortfolios.mockResolvedValue([])
 
-    expect(screen.getByText('No portfolio found. Create one to start trading.')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Create Portfolio' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Create Portfolio' })).toHaveAttribute('href', '/portfolio/create')
+      renderComponent()
+
+      await waitFor(() => {
+        fireEvent.click(screen.getByText('Create Portfolio'))
+      })
+
+      expect(screen.getByText('Create New Portfolio')).toBeInTheDocument()
+      expect(screen.getByLabelText('Portfolio Name')).toBeInTheDocument()
+      expect(screen.getByLabelText('Initial Capital (₹)')).toBeInTheDocument()
+      expect(screen.getByText('Cancel')).toBeInTheDocument()
+    })
   })
 
-  it('renders portfolio data correctly', () => {
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: [mockPortfolio],
-      isLoading: false,
+  describe('Portfolio Creation', () => {
+    beforeEach(async () => {
+      mockPortfolioService.getPortfolios.mockResolvedValue([])
+      renderComponent()
+      
+      await waitFor(() => {
+        fireEvent.click(screen.getByText('Create Portfolio'))
+      })
     })
 
-    render(<PortfolioSummary />)
+    it('should create portfolio with valid data', async () => {
+      const newPortfolio = {
+        id: '1',
+        name: 'My Trading Portfolio',
+        initialCapital: 200000,
+        currentValue: 200000,
+        totalReturn: 0,
+        totalReturnPercent: 0,
+        dayChange: 0,
+        dayChangePercent: 0,
+        cashBalance: 200000,
+        investedAmount: 0,
+        createdAt: '2024-01-04',
+        updatedAt: '2024-01-04'
+      }
 
-    // Check header
-    expect(screen.getByText('Portfolio Summary')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'View Details' })).toHaveAttribute('href', '/portfolio')
+      mockPortfolioService.createPortfolio.mockResolvedValue(newPortfolio)
+      mockPortfolioService.getPortfolios.mockResolvedValue([newPortfolio])
 
-    // Check total value
-    expect(screen.getByText('Total Portfolio Value')).toBeInTheDocument()
-    expect(screen.getByText('$100,000.00')).toBeInTheDocument()
+      const nameInput = screen.getByLabelText('Portfolio Name')
+      const capitalInput = screen.getByLabelText('Initial Capital (₹)')
 
-    // Check daily return
-    expect(screen.getByText('$200.00')).toBeInTheDocument()
-    expect(screen.getByText('(0.20%)')).toBeInTheDocument()
+      fireEvent.change(nameInput, { target: { value: 'My Trading Portfolio' } })
+      fireEvent.change(capitalInput, { target: { value: '200000' } })
 
-    // Check metrics
-    expect(screen.getByText('Cash Balance')).toBeInTheDocument()
-    expect(screen.getByText('$50,000.00')).toBeInTheDocument()
+      fireEvent.click(screen.getByRole('button', { name: 'Create Portfolio' }))
 
-    expect(screen.getByText('Total Return')).toBeInTheDocument()
-    expect(screen.getByText('5.00%')).toBeInTheDocument()
+      await waitFor(() => {
+        expect(mockPortfolioService.createPortfolio).toHaveBeenCalledWith({
+          name: 'My Trading Portfolio',
+          initialCapital: 200000
+        })
+        expect(mockToast.success).toHaveBeenCalledWith('Portfolio created successfully!')
+      })
+    })
 
-    expect(screen.getByText('Buying Power')).toBeInTheDocument()
+    it('should show error for empty portfolio name', async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Create Portfolio' }))
+
+      await waitFor(() => {
+        expect(mockToast.error).toHaveBeenCalledWith('Please enter a portfolio name')
+        expect(mockPortfolioService.createPortfolio).not.toHaveBeenCalled()
+      })
+    })
+
+    it('should show error for invalid capital amount', async () => {
+      const nameInput = screen.getByLabelText('Portfolio Name')
+      const capitalInput = screen.getByLabelText('Initial Capital (₹)')
+
+      fireEvent.change(nameInput, { target: { value: 'Test Portfolio' } })
+      fireEvent.change(capitalInput, { target: { value: '-1000' } })
+
+      fireEvent.click(screen.getByRole('button', { name: 'Create Portfolio' }))
+
+      await waitFor(() => {
+        expect(mockToast.error).toHaveBeenCalledWith('Please enter a valid initial capital amount')
+        expect(mockPortfolioService.createPortfolio).not.toHaveBeenCalled()
+      })
+    })
+
+    it('should handle portfolio creation error', async () => {
+      mockPortfolioService.createPortfolio.mockRejectedValue(new Error('Server error'))
+
+      const nameInput = screen.getByLabelText('Portfolio Name')
+      fireEvent.change(nameInput, { target: { value: 'Test Portfolio' } })
+
+      fireEvent.click(screen.getByRole('button', { name: 'Create Portfolio' }))
+
+      await waitFor(() => {
+        expect(mockToast.error).toHaveBeenCalledWith('Server error')
+      })
+    })
+
+    it('should reset form on cancel', async () => {
+      const nameInput = screen.getByLabelText('Portfolio Name')
+      const capitalInput = screen.getByLabelText('Initial Capital (₹)')
+
+      fireEvent.change(nameInput, { target: { value: 'Test Portfolio' } })
+      fireEvent.change(capitalInput, { target: { value: '500000' } })
+
+      fireEvent.click(screen.getByText('Cancel'))
+
+      await waitFor(() => {
+        expect(screen.getByText('Create Portfolio')).toBeInTheDocument()
+        expect(screen.queryByLabelText('Portfolio Name')).not.toBeInTheDocument()
+      })
+    })
   })
 
-  it('displays positive returns with bullish color', () => {
-    const positivePortfolio = {
-      ...mockPortfolio,
-      daily_return: 500,
-      daily_return_percent: 0.5,
-      total_return: 10000,
-      total_return_percent: 10,
+  describe('Portfolio Display', () => {
+    const mockPortfolio = {
+      id: '1',
+      name: 'My Portfolio',
+      initialCapital: 100000,
+      currentValue: 110000,
+      totalReturn: 10000,
+      totalReturnPercent: 10,
+      dayChange: 500,
+      dayChangePercent: 0.45,
+      cashBalance: 50000,
+      investedAmount: 60000,
+      createdAt: '2024-01-01',
+      updatedAt: '2024-01-04'
     }
 
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: [positivePortfolio],
-      isLoading: false,
+    it('should display portfolio data correctly', async () => {
+      mockPortfolioService.getPortfolios.mockResolvedValue([mockPortfolio])
+
+      renderComponent()
+
+      await waitFor(() => {
+        expect(screen.getByText('Total Portfolio Value')).toBeInTheDocument()
+        expect(screen.getByText('₹1,10,000')).toBeInTheDocument() // currentValue
+        expect(screen.getByText('₹500')).toBeInTheDocument() // dayChange
+        expect(screen.getByText('(45.00%)')).toBeInTheDocument() // dayChangePercent
+        expect(screen.getByText('Cash Balance')).toBeInTheDocument()
+        expect(screen.getByText('₹50,000')).toBeInTheDocument() // cashBalance
+        expect(screen.getByText('Total Return')).toBeInTheDocument()
+        expect(screen.getByText('1000.00%')).toBeInTheDocument() // totalReturnPercent
+        expect(screen.getByText('Buying Power')).toBeInTheDocument()
+      })
     })
 
-    render(<PortfolioSummary />)
+    it('should show positive indicator for gains', async () => {
+      mockPortfolioService.getPortfolios.mockResolvedValue([mockPortfolio])
 
-    const returnElements = screen.getAllByText(/\$500\.00/)
-    const percentElements = screen.getAllByText(/10\.00%/)
-    
-    returnElements.forEach(el => {
-      if (el.closest('.text-bullish')) {
-        expect(el.closest('.text-bullish')).toBeInTheDocument()
+      renderComponent()
+
+      await waitFor(() => {
+        const changeElement = screen.getByText('₹500').parentElement
+        expect(changeElement).toHaveClass('text-bullish')
+      })
+    })
+
+    it('should show negative indicator for losses', async () => {
+      const lossPortfolio = {
+        ...mockPortfolio,
+        dayChange: -500,
+        dayChangePercent: -0.45,
+        totalReturn: -5000,
+        totalReturnPercent: -5
       }
+
+      mockPortfolioService.getPortfolios.mockResolvedValue([lossPortfolio])
+
+      renderComponent()
+
+      await waitFor(() => {
+        const changeElement = screen.getByText('₹500').parentElement
+        expect(changeElement).toHaveClass('text-bearish')
+      })
+    })
+
+    it('should have link to portfolio details', async () => {
+      mockPortfolioService.getPortfolios.mockResolvedValue([mockPortfolio])
+
+      renderComponent()
+
+      await waitFor(() => {
+        const detailsLink = screen.getByText('View Details').closest('a')
+        expect(detailsLink).toHaveAttribute('href', '/portfolio')
+      })
     })
   })
 
-  it('displays negative returns with bearish color', () => {
-    const negativePortfolio = {
-      ...mockPortfolio,
-      daily_return: -500,
-      daily_return_percent: -0.5,
-      total_return: -5000,
-      total_return_percent: -5,
-    }
+  describe('Multiple Portfolios', () => {
+    it('should use first portfolio as default', async () => {
+      const portfolios = [
+        {
+          id: '1',
+          name: 'Portfolio 1',
+          currentValue: 100000,
+          dayChange: 1000,
+          dayChangePercent: 1,
+          cashBalance: 40000,
+          totalReturn: 5000,
+          totalReturnPercent: 5,
+          initialCapital: 95000,
+          investedAmount: 60000,
+          createdAt: '2024-01-01',
+          updatedAt: '2024-01-04'
+        },
+        {
+          id: '2',
+          name: 'Portfolio 2',
+          currentValue: 200000,
+          dayChange: 2000,
+          dayChangePercent: 1,
+          cashBalance: 80000,
+          totalReturn: 10000,
+          totalReturnPercent: 5,
+          initialCapital: 190000,
+          investedAmount: 120000,
+          createdAt: '2024-01-02',
+          updatedAt: '2024-01-04'
+        }
+      ]
 
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: [negativePortfolio],
-      isLoading: false,
-    })
+      mockPortfolioService.getPortfolios.mockResolvedValue(portfolios)
 
-    render(<PortfolioSummary />)
+      renderComponent()
 
-    const returnElements = screen.getAllByText(/\$500\.00/)
-    const percentElements = screen.getAllByText(/5\.00%/)
-    
-    returnElements.forEach(el => {
-      if (el.closest('.text-bearish')) {
-        expect(el.closest('.text-bearish')).toBeInTheDocument()
-      }
+      await waitFor(() => {
+        // Should display first portfolio's value
+        expect(screen.getByText('₹1,00,000')).toBeInTheDocument()
+        expect(screen.queryByText('₹2,00,000')).not.toBeInTheDocument()
+      })
     })
   })
 
-  it('selects default portfolio when multiple exist', () => {
-    const portfolios = [
-      { ...mockPortfolio, is_default: false, name: 'Secondary' },
-      { ...mockPortfolio, is_default: true, name: 'Primary' },
-    ]
+  describe('Error Handling', () => {
+    it('should handle portfolio fetch error gracefully', async () => {
+      mockPortfolioService.getPortfolios.mockRejectedValue(new Error('Network error'))
 
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: portfolios,
-      isLoading: false,
+      renderComponent()
+
+      await waitFor(() => {
+        // Should still show the component structure
+        expect(screen.getByText('Portfolio Summary')).toBeInTheDocument()
+      })
     })
-
-    render(<PortfolioSummary />)
-
-    // Should display the default portfolio's value
-    expect(screen.getByText('$100,000.00')).toBeInTheDocument()
-  })
-
-  it('falls back to first portfolio if no default', () => {
-    const portfolios = [
-      { ...mockPortfolio, is_default: false, name: 'First', total_value: 75000 },
-      { ...mockPortfolio, is_default: false, name: 'Second', total_value: 125000 },
-    ]
-
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: portfolios,
-      isLoading: false,
-    })
-
-    render(<PortfolioSummary />)
-
-    // Should display the first portfolio's value
-    expect(screen.getByText('$75,000.00')).toBeInTheDocument()
-  })
-
-  it('displays performance chart placeholder', () => {
-    ;(useQuery as jest.Mock).mockReturnValue({
-      data: [mockPortfolio],
-      isLoading: false,
-    })
-
-    render(<PortfolioSummary />)
-
-    expect(screen.getByText('Performance Chart')).toBeInTheDocument()
   })
 })

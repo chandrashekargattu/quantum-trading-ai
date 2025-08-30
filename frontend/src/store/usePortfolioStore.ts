@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
-import { portfolioService, Portfolio, Position, Performance } from '@/services/api/portfolio'
+import { portfolioService } from '@/services/api/portfolio-optimized'
+import type { Portfolio, Position, Performance } from '@/services/api/portfolio'
 
 interface PortfolioState {
   // Portfolio data

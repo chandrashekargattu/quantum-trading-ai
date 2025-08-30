@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
-import { marketService, Stock, Option } from '@/services/api/market'
+import { marketService } from '@/services/api/market-optimized'
+import type { Stock, Option } from '@/services/api/market'
 
 interface MarketState {
   // Watchlist

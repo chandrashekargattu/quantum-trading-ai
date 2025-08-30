@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Auth Flow - Quantum Trading AI</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 50px auto; padding: 20px; }
+        .section { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        .info { color: blue; }
+        button { margin: 5px; padding: 10px 20px; cursor: pointer; background: #6366f1; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #5558e3; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 12px; }
+        .log { margin-top: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 4px; max-height: 400px; overflow-y: auto; }
+        .log-entry { margin-bottom: 5px; font-family: monospace; font-size: 11px; }
+        .step { padding: 15px; margin: 10px 0; background: #f0f4ff; border-left: 4px solid #6366f1; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Check Authentication Flow</h1>
+    
+    <div class="section">
+        <h2>Step-by-Step Login Test</h2>
+        <div class="step">
+            <h3>Step 1: Clear Everything</h3>
+            <button onclick="clearAndTest()">🧹 Clear All & Start Fresh</button>
+            <p>This will clear all stored data and test login from scratch</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: Test Login</h3>
+            <button onclick="testFullFlow()">🚀 Test Complete Login Flow</button>
+            <p>This will attempt login and track each step</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: Manual Dashboard Access</h3>
+            <button onclick="checkDashboardAccess()">📊 Try Dashboard Access</button>
+            <button onclick="forceNavigate()">💪 Force Navigate to Dashboard</button>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Current State</h2>
+        <div id="currentState"></div>
+    </div>
+    
+    <div class="section">
+        <h2>Live Logs</h2>
+        <div id="logs" class="log"></div>
+    </div>
+    
+    <script>
+        let logEntries = [];
+        
+        function log(message, type = 'info') {
+            const time = new Date().toLocaleTimeString();
+            const entry = { time, message, type };
+            logEntries.unshift(entry);
+            updateLogs();
+        }
+        
+        function updateLogs() {
+            const logsDiv = document.getElementById('logs');
+            logsDiv.innerHTML = logEntries.map(entry => 
+                `<div class="log-entry ${entry.type}">[${entry.time}] <span class="${entry.type}">${entry.message}</span></div>`
+            ).join('');
+        }
+        
+        function updateState() {
+            const token = localStorage.getItem('access_token');
+            const tokenType = localStorage.getItem('token_type');
+            const user = localStorage.getItem('user');
+            
+            let html = '<table style="width: 100%;">';
+            html += '<tr><td><strong>Access Token:</strong></td><td>' + (token ? `<span class="success">✅ Present (${token.substring(0, 30)}...)</span>` : '<span class="error">❌ Missing</span>') + '</td></tr>';
+            html += '<tr><td><strong>Token Type:</strong></td><td>' + (tokenType || 'Not set') + '</td></tr>';
+            html += '<tr><td><strong>User Data:</strong></td><td>' + (user ? '<span class="success">✅ Present</span>' : '<span class="error">❌ Missing</span>') + '</td></tr>';
+            html += '</table>';
+            
+            if (user) {
+                try {
+                    const userData = JSON.parse(user);
+                    html += '<h4>User Details:</h4><pre>' + JSON.stringify(userData, null, 2) + '</pre>';
+                } catch (e) {
+                    html += '<p class="error">Error parsing user data</p>';
+                }
+            }
+            
+            document.getElementById('currentState').innerHTML = html;
+        }
+        
+        async function clearAndTest() {
+            log('🧹 Clearing all localStorage data...');
+            localStorage.clear();
+            log('✅ LocalStorage cleared', 'success');
+            updateState();
+        }
+        
+        async function testFullFlow() {
+            log('🚀 Starting full login flow test...');
+            
+            try {
+                // Step 1: Login
+                log('📡 Sending login request...');
+                const loginResponse = await fetch('http://localhost:8000/api/v1/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        username: 'chandrashekargattu@gmail.com',
+                        password: 'Bunty@009009',
+                    }),
+                });
+                
+                log(`📊 Login response status: ${loginResponse.status}`);
+                
+                if (!loginResponse.ok) {
+                    const errorText = await loginResponse.text();
+                    log(`❌ Login failed: ${errorText}`, 'error');
+                    return;
+                }
+                
+                const loginData = await loginResponse.json();
+                log('✅ Login successful!', 'success');
+                log(`🎫 Received token: ${loginData.access_token.substring(0, 30)}...`);
+                
+                // Step 2: Store tokens
+                localStorage.setItem('access_token', loginData.access_token);
+                localStorage.setItem('token_type', loginData.token_type || 'bearer');
+                log('💾 Tokens stored in localStorage', 'success');
+                
+                // Step 3: Fetch user data
+                log('👤 Fetching user data...');
+                const userResponse = await fetch('http://localhost:8000/api/v1/users/me', {
+                    headers: {
+                        'Authorization': `${loginData.token_type || 'bearer'} ${loginData.access_token}`
+                    }
+                });
+                
+                log(`📊 User data response status: ${userResponse.status}`);
+                
+                if (userResponse.ok) {
+                    const userData = await userResponse.json();
+                    localStorage.setItem('user', JSON.stringify(userData));
+                    log('✅ User data fetched and stored', 'success');
+                    log(`👤 User: ${userData.email || userData.username}`);
+                } else {
+                    log('⚠️ Failed to fetch user data', 'error');
+                }
+                
+                updateState();
+                
+                // Step 4: Test dashboard access
+                log('🏠 Testing dashboard API access...');
+                const dashboardTest = await fetch('http://localhost:8000/api/v1/portfolios', {
+                    headers: {
+                        'Authorization': `${loginData.token_type || 'bearer'} ${loginData.access_token}`
+                    }
+                });
+                
+                log(`📊 Dashboard API test status: ${dashboardTest.status}`);
+                
+                if (dashboardTest.ok) {
+                    log('✅ Dashboard API accessible!', 'success');
+                    log('🎉 Authentication flow complete! You can now navigate to dashboard.', 'success');
+                } else {
+                    log('❌ Dashboard API not accessible', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        function checkDashboardAccess() {
+            const token = localStorage.getItem('access_token');
+            if (!token) {
+                log('❌ No token found. Please login first.', 'error');
+                return;
+            }
+            
+            log('📊 Opening dashboard in new tab...');
+            window.open('http://localhost:3000/dashboard', '_blank');
+            log('✅ Dashboard opened. Check if it loads correctly.', 'success');
+        }
+        
+        function forceNavigate() {
+            log('💪 Force navigating to dashboard...');
+            window.location.href = 'http://localhost:3000/dashboard';
+        }
+        
+        // Initial state update
+        updateState();
+        log('🔧 Auth flow checker ready!', 'success');
+        
+        // Auto-update state every 2 seconds
+        setInterval(updateState, 2000);
+    </script>
+</body>
+</html>

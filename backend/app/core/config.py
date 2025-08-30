@@ -2,7 +2,7 @@
 
 from typing import List, Optional
 from pydantic_settings import BaseSettings
-from pydantic import AnyHttpUrl, Field
+from pydantic import Field
 
 
 class Settings(BaseSettings):
@@ -15,8 +15,8 @@ class Settings(BaseSettings):
     DEBUG: bool = Field(default=False, env="DEBUG")
     
     # CORS Settings
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = Field(
-        default=["http://localhost:3000", "http://localhost:8000"],
+    BACKEND_CORS_ORIGINS: List[str] = Field(
+        default=["http://localhost:3000", "http://localhost:8000", "http://localhost:3001"],
         env="BACKEND_CORS_ORIGINS"
     )
     

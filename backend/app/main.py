@@ -12,7 +12,7 @@ from app.core.config import settings
 from app.api.v1.api import api_router
 from app.db.database import init_db
 from app.api.v1.websocket import websocket_endpoint, periodic_connection_check
-from app.ml.model_manager import ModelManager
+# from app.ml.model_manager import ModelManager  # Temporarily disabled
 from fastapi import WebSocket
 import asyncio
 
@@ -38,9 +38,9 @@ async def lifespan(app: FastAPI):
     await init_db()
     
     # Initialize ML models
-    model_manager = ModelManager()
-    await model_manager.load_models()
-    app.state.model_manager = model_manager
+    # model_manager = ModelManager()  # Temporarily disabled
+    # await model_manager.load_models()
+    # app.state.model_manager = model_manager
     
     # Start WebSocket connection checker
     connection_check_task = asyncio.create_task(periodic_connection_check())
@@ -52,7 +52,7 @@ async def lifespan(app: FastAPI):
     # Shutdown
     logger.info("Shutting down Quantum Trading AI Backend...")
     connection_check_task.cancel()
-    await model_manager.cleanup()
+    # await model_manager.cleanup()  # Temporarily disabled
 
 
 # Create FastAPI app
@@ -66,10 +66,11 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # Add trusted host middleware

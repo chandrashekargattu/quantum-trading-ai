@@ -15,6 +15,11 @@ class StockBase(BaseModel):
     is_optionable: bool = False
 
 
+class StockCreate(StockBase):
+    """Stock creation schema."""
+    pass
+
+
 class StockResponse(StockBase):
     """Stock response schema."""
     id: UUID

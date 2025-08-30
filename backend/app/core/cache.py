@@ -42,6 +42,31 @@ async def cache_clear() -> None:
     _cache_expiry.clear()
 
 
+# Cache manager class for compatibility
+class CacheManager:
+    """Simple cache manager for compatibility with services."""
+    
+    async def get(self, key: str) -> Optional[Any]:
+        """Get value from cache."""
+        return await cache_get(key)
+    
+    async def set(self, key: str, value: Any, expire: int = 300) -> None:
+        """Set value in cache."""
+        await cache_set(key, value, expire)
+    
+    async def delete(self, key: str) -> None:
+        """Delete key from cache."""
+        await cache_delete(key)
+    
+    async def clear(self) -> None:
+        """Clear all cache entries."""
+        await cache_clear()
+
+
+# Global cache manager instance
+cache_manager = CacheManager()
+
+
 # Decorator for caching function results
 def cached(expire: int = 300):
     """Decorator to cache function results."""

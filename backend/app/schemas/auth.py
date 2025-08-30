@@ -24,6 +24,12 @@ class TokenData(BaseModel):
     exp: Optional[datetime] = None
 
 
+class TokenPayload(BaseModel):
+    """Token payload for JWT."""
+    sub: str  # User ID
+    exp: Optional[datetime] = None
+
+
 class UserCreate(BaseModel):
     """User registration schema."""
     email: EmailStr

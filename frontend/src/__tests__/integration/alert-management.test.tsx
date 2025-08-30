@@ -4,12 +4,12 @@ import userEvent from '@testing-library/user-event'
 import { useAlertStore } from '@/store/useAlertStore'
 import { useMarketStore } from '@/store/useMarketStore'
 import { alertService } from '@/services/api/alerts'
-import { marketService } from '@/services/api/market'
+import { marketService } from '@/services/api/market-optimized'
 import toast from 'react-hot-toast'
 
 // Mock services
 jest.mock('@/services/api/alerts')
-jest.mock('@/services/api/market')
+jest.mock('@/services/api/market-optimized')
 jest.mock('react-hot-toast')
 
 // Alert Management Component
