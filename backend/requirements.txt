@@ -44,7 +44,7 @@ textblob==0.17.1
 
 # WebSocket & Real-time
 python-socketio==5.10.0
-websockets==12.0
+websockets==15.0.1
 
 # Task Queue
 celery==5.3.4
